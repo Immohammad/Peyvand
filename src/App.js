@@ -1,20 +1,22 @@
-import Navbar from "./components/Navbar";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+
+import Navbars from "./components/navbars";
+import Projects from "./components/projects";
+import AboutUs from "./components/aboutUs";
+import News from "./components/news";
+import Login from "./components/signLogin";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar />
-        {/* <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/events" component={Events} />
-          <Route path="/annual" component={AnnualReport} />
-          <Route path="/team" component={Teams} />
-          <Route path="/blogs" component={Blogs} />
-          <Route path="/sign-up" component={SignUp} />
-        </Switch> */}
+        <Navbars />
+        <Routes>
+          <Route path="/" exact element={<Projects />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
       </Router>
     </div>
   );
