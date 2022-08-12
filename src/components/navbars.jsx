@@ -25,11 +25,11 @@ const Navbars = () => {
           <Nav.Link as={Link} to="/" className="navbarFont">
             پروژه‌ها
           </Nav.Link>
-          <Nav.Link as={Link} to="/news" className="navbarFont">
-            اخبار و اطلاعیه‌ها
+          <Nav.Link as={Link} to="/profile/myReasearchs" className="navbarFont">
+            ساخت پروژه
           </Nav.Link>
-          <Nav.Link as={Link} to="/about-us" className="navbarFont">
-            دربارۀ ما
+          <Nav.Link as={Link} to="/profile" className="navbarFont">
+            پروفایل
           </Nav.Link>
 
           <form className="form-inline my-2 my-lg-0" id="searchForm">
