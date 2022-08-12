@@ -149,3 +149,40 @@ label {
   overflow: scroll initial;
 }
 /* end of profile sideBar*************** */
+
+/* timeline*************** */
+#timelineContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+#timelineResearchs {
+  margin: 20pt;
+}
+#ResearchDescription{
+  border: black;
+  border-style: groove;
+  margin: 20pt;
+}
+/* end of timeline*************** */
+
+/* Research*************** */
+#eachResearch {
+  border-radius: 10px;
+  background-color: white;
+  border: #a1aab9;
+  border-style: groove;
+  margin: 20pt;
+}
+/* end of Research*************** */
+
+/* myResearchs*************** */
+#addProject{
+  margin: 20pt;
+  background-color:white;
+  width: 50pt;
+   color:green;
+   border: green;
+   border-style: dashed;
+   border-radius: 8px;
+}
+/* end of myResearch*************** */
