@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Research from "./research";
+import Footer from "./footer";
 
 function Timeline() {
   const [projects, setProjects] = useState(null);
@@ -20,6 +21,7 @@ function Timeline() {
         <div id="timelineResearchs">{projects && <Research projects={projects} />}</div>
         <div id="ResearchDescription">Research discreption</div>
       </div>
+      <Footer/>
     </div>
   );
 }
