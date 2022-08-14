@@ -47,6 +47,12 @@ body {
 /* *******************end of navbar********************** */
 
 /* *******************contact form********************** */
+#buttonsContainer {
+  display: grid;
+  align-content: space-evenly;
+  grid-template-columns: auto auto;
+  grid-gap: 25px;
+}
 label {
   display: block;
   text-align: right;
@@ -72,7 +78,7 @@ label {
   grid-template-columns: auto auto;
   grid-gap: 25px;
 }
-#submit {
+.loginButtons {
   width: 100%;
   background-color: #027ea1;
   font-size: 25px;
@@ -85,7 +91,7 @@ label {
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease 0s;
 }
-#submit:hover {
+.loginButtons:hover {
   background-color: #027ea1;
   box-shadow: 0px 15px 20px #027ea1;
   transform: translateY(-7px);
@@ -101,7 +107,18 @@ label {
   padding-right: 30px;
   padding-bottom: 20px;
   font-weight: bold;
-  border-radius: 5px;
+  border-radius: 10px;
+  border-style: outset;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
 }
 /* *******************end of contact form********************** */
 
