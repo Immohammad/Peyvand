@@ -42,10 +42,10 @@ const Filter = (props) => {
   }, [need, area]);
 
   return (
-    <div style={{backgroundColor:"white", paddingBottom:"10px"}}>
+    <div style={{backgroundColor:"white", padding:"10px"}}>
       <h5>فیلتر بر اساس :</h5>
       <div style={{ display: "inline" }} onChange={handleNeedChange}>
-        <p style={{ display: "inline" }}>نیاز به همکاری</p>
+        <p style={{ display: "inline" ,fontWeight:"bold"}}>نیاز به همکاری</p>
          {" "}
         <input
           type="radio"
@@ -73,7 +73,7 @@ const Filter = (props) => {
         </label>
       </div>
       <div style={{ display: "inline" ,paddingRight: "30px"}}>
-      <label style={{ display: "inline" }}>
+      <label style={{ display: "inline" ,fontWeight:"bold"}}>
           حوزۀ پژوهش
           {" "}
           <select

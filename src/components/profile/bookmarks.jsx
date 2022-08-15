@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import ProfileCard from "./profileCard";
 import ProfileSidenav from "./profileSidenav";
 import Research from "../research";
+import Filter from "../filter";
 
 function Bookmarks() {
   const [projects, setProjects] = useState(null);
+  const [filteredProjects, setFilteredProjects] = useState(null);
 
   useEffect(() => {
     fetch("http://localhost:8000/projects")
@@ -20,10 +22,12 @@ function Bookmarks() {
       <ProfileCard />
       <div style={{ display: "flex" }}>
         <ProfileSidenav />
-        <div style={{ maxWidth: "80%" }}>{projects && <Research projects={projects}/>}</div>
+        <div style={{ maxWidth: "80%" }}>
+        <div id="filterInBookmark">{projects && <Filter data={projects} setter={setFilteredProjects}/>}</div>
+          {filteredProjects && <Research projects={filteredProjects} />}        </div>
       </div>
     </>
-  )
+  );
 }
 
-export default Bookmarks
+export default Bookmarks;

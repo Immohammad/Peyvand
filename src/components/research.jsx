@@ -5,7 +5,9 @@ const Research = (props) => {
     <div>
       {props.projects.map((project) => (
         <div className="container justify-content-center" id="eachResearch">
-          <h2 style={{ color: "#027EA1" }}>{project.name}</h2>
+          <h2 onClick={() => props.setter(project)} style={{ color: "#027EA1" }}>
+            {project.name}
+          </h2>
           <p style={{ color: "#027EA1" }}>{project.area}</p>
           <p>{project.admin}</p>
           <hr />
@@ -16,7 +18,7 @@ const Research = (props) => {
             ارایه اولیه شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا
             از نظر گرافیکی نشانگر چگونگی نوع و اندازه فونت و ظاهر متن باشد.
           </p>
-          <p>تاریخ ساخت</p>
+          <p>{project.dateCreated}</p>
         </div>
       ))}
     </div>

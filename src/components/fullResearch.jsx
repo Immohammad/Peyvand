@@ -1,0 +1,22 @@
+import React from "react";
+
+const FullResearch = (props) => {
+  return (
+    <div className="container justify-content-center" id="eachFullResearch">
+      <h2 style={{ color: "#027EA1" }}>{props.data.name}</h2>
+      <p style={{ color: "#027EA1" }}>{props.data.area}</p>
+      <p>{props.data.admin}</p>
+      <hr />
+      <p>
+        لورم ایپسوم یا طرح‌نما (به انگلیسی: Lorem ipsum) به متنی آزمایشی و
+        بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح گرافیک
+        از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه
+        شکل ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید، تا از نظر گرافیکی
+        نشانگر چگونگی نوع و اندازه فونت و ظاهر متن باشد.
+      </p>
+      <p>{props.data.dateCreated}</p>
+    </div>
+  );
+};
+
+export default FullResearch;

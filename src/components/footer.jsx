@@ -14,7 +14,7 @@ import { MdEmail } from "react-icons/md";
 // https://www.devwares.com/docs/contrast/react/components/footer/#:~:text=The%20React%20Bootstrap%205%20Footer,of%20our%20color%20palette%20classes.
 const Footer = () => {
   return (
-    <CDBFooter className="shadow">
+    <CDBFooter className="shadow"  style={{backgroundColor:"white"}}>
       <CDBBox
         display="flex"
         flex="column"

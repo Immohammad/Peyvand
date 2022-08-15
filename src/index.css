@@ -187,6 +187,13 @@ input[type="number"] {
 }
 /* end of notif profile*************** */
 
+/* bookmark profile*************** */
+#filterInBookmark{
+  border-radius: 10px;
+  border: #a1aab9;
+  border-style: groove;
+}
+/* end of bookmark profile*************** */
 
 /* timeline*************** */
 #timelineContainer {
