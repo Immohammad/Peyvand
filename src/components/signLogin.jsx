@@ -168,7 +168,7 @@ const SignLogin = () => {
             value={position}
             onChange={handlePosition}
             required
-            style={{ display: "block" }}
+            style={{ display: "block" , width:"100%"}}
           >
             <option value="0">دانشجو</option>
             <option value="1">استاد</option>

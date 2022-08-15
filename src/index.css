@@ -167,6 +167,27 @@ input[type="number"] {
 }
 /* end of profile sideBar*************** */
 
+/* about profile*************** */
+#firstAbout{
+  border-radius: 10px;
+  background-color: white;
+  margin: 20pt;
+  padding: 20px;
+}
+/* end of about profile*************** */
+
+/* notif profile*************** */
+#notif{
+  border-radius: 10px;
+  background-color: white;
+  border: #a1aab9;
+  border-style: groove;
+  margin: 20pt;
+  height: fit-content; 
+}
+/* end of notif profile*************** */
+
+
 /* timeline*************** */
 #timelineContainer {
   display: grid;
@@ -186,7 +207,7 @@ input[type="number"] {
 #eachResearch {
   border-radius: 10px;
   background-color: white;
-  border: #a1aab9;
+  border: #DE8668;
   border-style: groove;
   margin: 20pt;
 }

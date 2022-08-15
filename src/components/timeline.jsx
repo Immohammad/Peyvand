@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Research from "./research";
 import Footer from "./footer";
+import Filter from "./filter";
 
 function Timeline() {
   const [projects, setProjects] = useState(null);
+  const [filteredProjects, setFilteredProjects] = useState(null);
 
   useEffect(() => {
     fetch("http://localhost:8000/projects")
@@ -16,9 +18,9 @@ function Timeline() {
   }, []);
   return (
     <div>
-      <div>filters</div>
+      <div>{projects && <Filter data={projects} setter={setFilteredProjects}/>}</div>
       <div id="timelineContainer">
-        <div id="timelineResearchs">{projects && <Research projects={projects} />}</div>
+        <div id="timelineResearchs">{filteredProjects && <Research projects={filteredProjects} />}</div>
         <div id="ResearchDescription">Research discreption</div>
       </div>
       <Footer/>

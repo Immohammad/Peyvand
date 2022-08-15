@@ -8,7 +8,12 @@ function Notifications() {
       <ProfileCard />
       <div style={{ display: "flex" }}>
         <ProfileSidenav />
-        <div>Notifications</div>
+        <div className="container justify-content-center" id="notif">
+          <h2>موضوع نوتیف</h2>
+          <p>از طرف کیه</p>
+          <p>شرح کوتاه</p>
+          <p>تاریخ نوتیف</p>
+        </div>
       </div>
     </>
   )

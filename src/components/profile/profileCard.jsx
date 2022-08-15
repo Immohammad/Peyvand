@@ -2,7 +2,7 @@ import React from "react";
 
 const ProfileCard = () => {
   return (
-    <div className="container mt-5 justify-content-center"  id="profileCard">
+    <div className="container mt-5 justify-content-center" id="profileCard">
       <div className="card">
         <div className="d-flex align-items-center">
           <div className="image">
@@ -12,7 +12,7 @@ const ProfileCard = () => {
               width="155"
             />
           </div>
-          <div className="ml-3 w-100" style={{padding: "15px"}}>
+          <div className="ml-3 w-100" style={{ padding: "15px" }}>
             <h2 className="mb-0 mt-0">Captain</h2>
             <h3>رضا بلک</h3>
             <div className="p-2 mt-2 d-flex justify-content-between rounded text-white stats">
@@ -36,8 +36,7 @@ const ProfileCard = () => {
             </div>
           </div>
           <div className="ml-3 w-100" id="cardAbout">
-            <h5>- مهندسی کامپیوتر، دانشکده دریوزگان تاریخ</h5>
-            <h5>- همکار جواد آذری جهرمی در مگفا</h5>
+            <h5>بیو دانشجوی دانشکده فلان</h5>
           </div>
         </div>
       </div>
