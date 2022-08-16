@@ -203,9 +203,7 @@ input[type="number"] {
 #timelineResearchs {
   margin: 20pt;
 }
-#ResearchDescription{
-  border: black;
-  border-style: groove;
+#ResearchDescription {
   margin: 20pt;
 }
 /* end of timeline*************** */
@@ -214,9 +212,18 @@ input[type="number"] {
 #eachResearch {
   border-radius: 10px;
   background-color: white;
-  border: #DE8668;
-  border-style: groove;
   margin: 20pt;
+  border: solid 2px #027EA1;
+}
+#researchHeader{
+  cursor: pointer;
+  color: #027EA1;
+  padding-right: 5px;
+  border-radius: 10px;
+}
+#researchHeader:hover{
+  background-color: #027EA1;
+  color: white;
 }
 /* end of Research*************** */
 
@@ -237,3 +244,24 @@ input[type="number"] {
   color: #027EA1;
 }
 /* end of footer*************** */
+
+/* full Research*************** */
+#fullResearch{
+  background-color: white;
+  border-radius: 8px;
+  border: groove #DE8668;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 70pt;
+  overflow: auto;
+  height: 80vh;
+}
+/* end of full Research*************** */
+
+/* cooperation*************** */
+#cooperation{
+  border-radius: 8px;
+  border: solid 1px black;
+  margin-top: 5pt;
+}
+/* end of full cooperation*************** */

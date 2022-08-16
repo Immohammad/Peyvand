@@ -5,10 +5,10 @@ const Research = (props) => {
     <div>
       {props.projects.map((project) => (
         <div className="container justify-content-center" id="eachResearch">
-          <h2 onClick={() => props.setter(project)} style={{ color: "#027EA1" }}>
+          <h3 onClick={() => props.setter(project)} id="researchHeader">
             {project.name}
-          </h2>
-          <p style={{ color: "#027EA1" }}>{project.area}</p>
+          </h3>
+          <h5 style={{ color: "#027EA1" }}>{project.area}</h5>
           <p>{project.admin}</p>
           <hr />
           <p>

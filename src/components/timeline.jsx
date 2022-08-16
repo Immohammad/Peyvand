@@ -33,7 +33,7 @@ function Timeline() {
           )}
         </div>
         <div id="ResearchDescription">
-          {selectedResearch && <FullResearch data={selectedResearch} />}
+        <FullResearch data={selectedResearch} />
         </div>
       </div>
       <Footer />
