@@ -4,12 +4,12 @@ import Navbars from "./components/navbars";
 import Login from "./components/signLogin";
 import Timeline from "./components/timeline";
 
-import Profile from "./components/profile/profile";
-import MyReasearchs from "./components/profile/myReasearchs";
-import Notifications from "./components/profile/notifications";
-import Bookmarks from "./components/profile/bookmarks";
-import EditProfile from "./components/profile/editProfile";
-
+import Profile from "./components/dashboard/dashboard";
+import MyReasearchs from "./components/dashboard/myReasearchs";
+import Notifications from "./components/dashboard/notifications";
+import Bookmarks from "./components/dashboard/bookmarks";
+import EditProfile from "./components/dashboard/editProfile";
+import CreateResearch from "./components/dashboard/createResearch"
 
 function App() {
   return (
@@ -24,7 +24,8 @@ function App() {
           <Route path="/profile/notifications" element={<Notifications />} />
           <Route path="/profile/bookmarks" element={<Bookmarks />} />
           <Route path="/profile/edit" element={<EditProfile />} />
-        </Routes>
+          <Route path="/profile/createResearch" element={<CreateResearch />} />
+</Routes>
       </Router>
     </div>
   );

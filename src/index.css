@@ -239,6 +239,19 @@ input[type="number"] {
 }
 /* end of myResearch*************** */
 
+/* create Research*************** */
+#createResearch{
+  height: fit-content;
+  border-radius: 10px;
+  background-color: white;
+  margin: 20pt;
+  border: solid 2px #027ea1;
+  max-width: 70%;
+  padding-bottom: 20px;
+  font-weight: bold;
+}
+/* end of create Research*************** */
+
 /* footer*************** */
 .footerP{
   color: #027EA1;

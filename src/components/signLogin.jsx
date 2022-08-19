@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 // import './styling.css';
 import { useNavigate } from "react-router-dom";
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
 
 const SignLogin = () => {
   // states that have signup data
@@ -72,6 +76,10 @@ const SignLogin = () => {
   //submits
   const handleButtonToNext = (event) => {
     event.preventDefault();
+    if (pass != passRepeat) 
+      return NotificationManager.warning(
+        "تکرار رمز عبور اشتباه است"
+      );
     document.getElementById("signupForm").style.display = "none";
     document.getElementById("loginForm").style.display = "none";
     document.getElementById("buttonsContainer").style.display = "none";
@@ -356,6 +364,7 @@ const SignLogin = () => {
         <input type="submit" className="loginButtons" value="ثبت"></input>
       </form>
       {/* //////////////////////////////////////////////////// finish company*/}
+      <NotificationContainer />
     </div>
   );
 };
