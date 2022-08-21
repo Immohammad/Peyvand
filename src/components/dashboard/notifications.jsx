@@ -1,6 +1,6 @@
 import React from 'react'
 import ProfileCard from "./profileCard";
-import ProfileSidenav from "./profileSidenav";
+import ProfileSidenav from "./dashboardSidenav";
 
 function Notifications() {
   return (

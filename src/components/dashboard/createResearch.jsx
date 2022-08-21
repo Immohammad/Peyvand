@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ProfileCard from "./profileCard";
-import ProfileSidenav from "./profileSidenav";
+import ProfileSidenav from "./dashboardSidenav";
 import axios from 'axios';
 
 function CreateResearch() {

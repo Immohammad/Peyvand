@@ -1,14 +1,13 @@
 import React from "react";
 import ProfileCard from "./profileCard";
-import DashboardSidenav from "./dashboardSidenav";
+import ProfileSidenav from "./profileSidenav";
 
-
-const Dashboard = () => {
+const Profile = () => {
   return (
     <>
     <ProfileCard/>
     <div style={{ display: "flex"}}>
-        <DashboardSidenav />
+        <ProfileSidenav />
         <div className="container justify-content-center">
           <div id="firstAbout" style={{ maxWidth: "80%" }}>
             <p></p> {/*دربارش*/}
@@ -26,4 +25,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Profile;

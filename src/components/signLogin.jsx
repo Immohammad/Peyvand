@@ -1,21 +1,24 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   NotificationContainer,
   NotificationManager,
 } from "react-notifications";
 import axios from "axios";
+import User from "./context";
 
 const SignLogin = () => {
+  const userFromContext = useContext(User);
+
   // states that have signup data
   const [userName, setUserName] = useState("");
-  const [lastName, setLastName] = useState("");
   const [pass, setPass] = useState("");
   const [passRepeat, setPassRepeat] = useState("");
-  const [position, setPositiont] = useState("0");
+  const [role, setRole] = useState(0);
 
   //expanded forms data
   const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [code, setCode] = useState("");
   const [gender, setGender] = useState(0);
   const [studentId, setStudentId] = useState("");
@@ -48,8 +51,8 @@ const SignLogin = () => {
   const handlePassRepeat = (Event) => {
     setPassRepeat(Event.target.value);
   };
-  const handlePosition = (Event) => {
-    setPositiont(Event.target.value);
+  const handleRole = (Event) => {
+    setRole(Event.target.value);
   };
 
   const handleName = (Event) => {
@@ -80,33 +83,48 @@ const SignLogin = () => {
   //submits
   const handleButtonToNext = (event) => {
     event.preventDefault();
-    if (pass != passRepeat) 
-      return NotificationManager.warning(
-        "تکرار رمز عبور اشتباه است"
-      );
+    if (pass != passRepeat)
+      return NotificationManager.warning("تکرار رمز عبور اشتباه است");
     document.getElementById("signupForm").style.display = "none";
     document.getElementById("loginForm").style.display = "none";
     document.getElementById("buttonsContainer").style.display = "none";
-    if (position === "0") {
+    if (role == 0) {
       document.getElementById("signupContinueStudent").style.display = "block";
-    } else if (position === "1") {
+    } else if (role == 1) {
       document.getElementById("signupContinueTeacher").style.display = "block";
-    } else if (position === "2") {
+    } else if (role == 2) {
       document.getElementById("signupContinueCompany").style.display = "block";
     }
   };
 
-  const handleLogin = (event) => {
-    event.preventDefault();
-    ///////////////////////////////
-    navigate("/");
-  };
+  function doPost(url, user) {
+    axios
+      .post(url, user)
+      .then(function (response) {
+        navigate("/");
+        return NotificationManager.success("ثبت نام با موفقیت انجام شد");
+      })
+      .catch(function (error) {
+        return NotificationManager.warning("ثبت نام با حطا مواجه شد");
+      });
+  }
   const handleStudentSignup = (event) => {
     event.preventDefault();
-    ///////////////////////////////
-    navigate("/");
+    const newUser = {
+      username: userName,
+      password: pass,
+      firstname: name,
+      lastname: lastName,
+      nationalIdNum: code,
+      gender: gender,
+      studentID: studentId,
+    };
+    doPost(
+      "http://rezaklhor-001-site1.etempurl.com/Register/StudentRegister",
+      newUser
+    );
   };
-  const handleTeacherSignup = async (event) => {
+  const handleTeacherSignup = (event) => {
     event.preventDefault();
     const newUser = {
       username: userName,
@@ -117,12 +135,10 @@ const SignLogin = () => {
       gender: gender,
       personnelID: teacherId,
     };
-    const res = await axios.post(
+    doPost(
       "http://rezaklhor-001-site1.etempurl.com/Register/ProfessorRegister",
       newUser
     );
-    ///////////////////////////////
-    navigate("/");
   };
   const handleCompanySignup = async (event) => {
     event.preventDefault();
@@ -130,15 +146,34 @@ const SignLogin = () => {
       username: userName,
       password: pass,
       companyName: companyName,
-      companyIDnumber:companyCode
+      companyIDnumber: companyCode,
     };
-    const res = await axios.post(
+    doPost(
       "http://rezaklhor-001-site1.etempurl.com/Register/CompanyRegister",
       newUser
     );
-    navigate("/");
   };
 
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const newUser = {
+      username: userName,
+      password: pass,
+    };
+    axios
+      .post("http://rezaklhor-001-site1.etempurl.com/Login", newUser)
+      .then(function (response) {
+        localStorage.setItem("token", response.data.token);
+        NotificationManager.success("ورود با موفقیت انجام شد");
+        userFromContext.setUSER(userName)
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
+      })
+      .catch(function (error) {
+        return NotificationManager.warning("نام کاربری یا رمز عبور نادرست است");
+      });
+  };
   return (
     <div id="containForm">
       <div id="buttonsContainer">
@@ -177,7 +212,8 @@ const SignLogin = () => {
             value={pass}
             onChange={handlePass}
             size="40"
-            placeholder="گذرواژه‌ای برای ورود در آینده انتخاب کنید"
+            minlength="8"
+            placeholder="رمز عبور باید حداقل 8 کاراکتر باشد"
             required
           ></input>
         </label>
@@ -190,7 +226,7 @@ const SignLogin = () => {
             value={passRepeat}
             onChange={handlePassRepeat}
             size="40"
-            placeholder="گذرواژۀ واردشده در مرحلۀ قبل را دوباره وارد کنید"
+            placeholder="رمز عبور را دوباره وارد کنید"
             required
           ></input>
         </label>
@@ -199,14 +235,14 @@ const SignLogin = () => {
           نقش
           <br />
           <select
-            value={position}
-            onChange={handlePosition}
+            value={role}
+            onChange={handleRole}
             required
-            style={{ display: "block" , width:"100%"}}
+            style={{ display: "block", width: "100%" }}
           >
-            <option value="0">دانشجو</option>
-            <option value="1">استاد</option>
-            <option value="2">شرکت</option>
+            <option value={0}>دانشجو</option>
+            <option value={1}>استاد</option>
+            <option value={2}>شرکت</option>
           </select>
         </label>
         <input type="submit" className="loginButtons" value="مرحلۀ بعد"></input>
@@ -254,6 +290,7 @@ const SignLogin = () => {
             type="text"
             value={name}
             onChange={handleName}
+            maxLength="20"
             size="40"
             required
           ></input>
@@ -265,6 +302,7 @@ const SignLogin = () => {
             type="text"
             value={lastName}
             onChange={handleLastName}
+            maxLength="20"
             size="40"
             required
           ></input>
@@ -276,11 +314,13 @@ const SignLogin = () => {
             type="number"
             value={code}
             onChange={handleCode}
+            placeholder="ده رقم کد ملی را بدون خط فاصله وارد کنید"
             size="40"
             required
-            // onWheelCapture={(e) => {
-            //   e.target.blur();
-            // }}
+            style={{ width: "100" }}
+            onWheelCapture={(e) => {
+              e.target.blur();
+            }}
           ></input>
         </label>
         <label>
@@ -298,6 +338,8 @@ const SignLogin = () => {
             type="number"
             value={studentId}
             onChange={handleStudentId}
+            minLength="8"
+            maxLength="9"
             size="40"
             required
             onWheelCapture={(e) => {
@@ -322,6 +364,7 @@ const SignLogin = () => {
             type="text"
             value={name}
             onChange={handleName}
+            maxLength="20"
             size="40"
             required
           ></input>
@@ -333,6 +376,7 @@ const SignLogin = () => {
             type="text"
             value={lastName}
             onChange={handleLastName}
+            maxLength="20"
             size="40"
             required
           ></input>
@@ -344,8 +388,10 @@ const SignLogin = () => {
             type="number"
             value={code}
             onChange={handleCode}
+            placeholder="ده رقم کد ملی را بدون خط فاصله وارد کنید"
             size="40"
             required
+            style={{ width: "100" }}
             onWheelCapture={(e) => {
               e.target.blur();
             }}
@@ -366,6 +412,8 @@ const SignLogin = () => {
             type="number"
             value={teacherId}
             onChange={handleTeacherId}
+            minLength="8"
+            maxLength="8"
             size="40"
             required
             onWheelCapture={(e) => {
@@ -400,9 +448,13 @@ const SignLogin = () => {
           <input
             type="number"
             value={companyCode}
+            placeholder="کد اقتصادی ده رقمی را وارد کنید"
             onChange={handleCompanyCode}
+            minLength="10"
+            maxLength="10"
             size="40"
             required
+            style={{ width: "100" }}
             onWheelCapture={(e) => {
               e.target.blur();
             }}

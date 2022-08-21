@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ProfileCard from "./profileCard";
-import ProfileSidenav from "./profileSidenav";
+import ProfileSidenav from "./dashboardSidenav";
 import Research from "../research";
 import Filter from "../filter";
 

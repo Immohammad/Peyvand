@@ -2,8 +2,16 @@ import React from "react";
 import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from "./stuffs/orangeLogo.png";
+import { useContext } from "react";
+import User from "./context";
 
 const Navbars = () => {
+  const user = useContext(User);
+  function handleLogout() {
+    localStorage.removeItem("token");
+    user.setUSER(null);
+    window.location = "/";
+  }
   return (
     <Navbar sticky="top" expand="sm" collapseOnSelect className="navbarFont">
       <Navbar.Brand className="navbarFont">
@@ -14,21 +22,30 @@ const Navbars = () => {
       <Navbar.Toggle />
       <Navbar.Collapse>
         <Nav>
-          {/* <NavDropdown title="ورود/ثبت نام" id="nav-dropdown">
-            <NavDropdown.Item href="#products/tea">ورود</NavDropdown.Item>
-            <NavDropdown.Item href="#products/coffee">ثبت نام</NavDropdown.Item>
-          </NavDropdown> */}
+          {user.USER ? (
+            <NavDropdown
+              title={user.USER}
+              id="nav-dropdown"
+              className="navbarFont"
+            >
+              <NavDropdown.Item as={Link} to="/dashboard">
+                حساب کاربری
+              </NavDropdown.Item>
+              <NavDropdown.Item onClick={handleLogout}>خروج</NavDropdown.Item>
+            </NavDropdown>
+          ) : (
+            <Nav.Link as={Link} to="/login" className="navbarFont">
+              ورود و ثبت نام
+            </Nav.Link>
+          )}
 
-          <Nav.Link as={Link} to="/login" className="navbarFont">
-            ورود و ثبت نام
-          </Nav.Link>
           <Nav.Link as={Link} to="/" className="navbarFont">
             پروژه‌ها
           </Nav.Link>
-          <Nav.Link as={Link} to="/profile/myReasearchs" className="navbarFont">
+          <Nav.Link as={Link} to="/dashboard/myReasearchs" className="navbarFont">
             ساخت پروژه
           </Nav.Link>
-          <Nav.Link as={Link} to="/profile" className="navbarFont">
+          <Nav.Link as={Link} to="/dashboard" className="navbarFont">
             پروفایل
           </Nav.Link>
 
