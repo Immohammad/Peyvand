@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate} from "react-router-dom";
 
 import Navbars from "./components/navbars";
 import Login from "./components/signLogin";
@@ -10,6 +10,7 @@ import Notifications from "./components/dashboard/notifications";
 import Bookmarks from "./components/dashboard/bookmarks";
 import EditProfile from "./components/dashboard/editProfile";
 import CreateResearch from "./components/dashboard/createResearch"
+import NotFound from "./components/notFound";
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
           <Route path="/profile/bookmarks" element={<Bookmarks />} />
           <Route path="/profile/edit" element={<EditProfile />} />
           <Route path="/profile/createResearch" element={<CreateResearch />} />
+          <Route path="/notFound" element={<NotFound />} />
+          <Route path="*" element={ <Navigate to="/notFound" /> } />
 </Routes>
       </Router>
     </div>

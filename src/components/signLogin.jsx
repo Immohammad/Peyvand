@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-// import './styling.css';
 import { useNavigate } from "react-router-dom";
 import {
   NotificationContainer,
   NotificationManager,
 } from "react-notifications";
+import axios from "axios";
 
 const SignLogin = () => {
   // states that have signup data
   const [userName, setUserName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [pass, setPass] = useState("");
   const [passRepeat, setPassRepeat] = useState("");
   const [position, setPositiont] = useState("0");
@@ -16,7 +17,7 @@ const SignLogin = () => {
   //expanded forms data
   const [name, setName] = useState("");
   const [code, setCode] = useState("");
-  const [gender, setGender] = useState("");
+  const [gender, setGender] = useState(0);
   const [studentId, setStudentId] = useState("");
 
   const [teacherId, setTeacherId] = useState("");
@@ -53,6 +54,9 @@ const SignLogin = () => {
 
   const handleName = (Event) => {
     setName(Event.target.value);
+  };
+  const handleLastName = (Event) => {
+    setLastName(Event.target.value);
   };
   const handleCode = (Event) => {
     setCode(Event.target.value);
@@ -102,14 +106,36 @@ const SignLogin = () => {
     ///////////////////////////////
     navigate("/");
   };
-  const handleTeacherSignup = (event) => {
+  const handleTeacherSignup = async (event) => {
     event.preventDefault();
+    const newUser = {
+      username: userName,
+      password: pass,
+      firstname: name,
+      lastname: lastName,
+      nationalIdNum: code,
+      gender: gender,
+      personnelID: teacherId,
+    };
+    const res = await axios.post(
+      "http://rezaklhor-001-site1.etempurl.com/Register/ProfessorRegister",
+      newUser
+    );
     ///////////////////////////////
     navigate("/");
   };
-  const handleCompanySignup = (event) => {
+  const handleCompanySignup = async (event) => {
     event.preventDefault();
-    ///////////////////////////////
+    const newUser = {
+      username: userName,
+      password: pass,
+      companyName: companyName,
+      companyIDnumber:companyCode
+    };
+    const res = await axios.post(
+      "http://rezaklhor-001-site1.etempurl.com/Register/CompanyRegister",
+      newUser
+    );
     navigate("/");
   };
 
@@ -222,12 +248,23 @@ const SignLogin = () => {
         style={{ display: "none" }}
       >
         <label>
-          نام و نام خانوادگی
+          نام
           <br />
           <input
             type="text"
             value={name}
             onChange={handleName}
+            size="40"
+            required
+          ></input>
+        </label>
+        <label>
+          نام خانوادگی
+          <br />
+          <input
+            type="text"
+            value={lastName}
+            onChange={handleLastName}
             size="40"
             required
           ></input>
@@ -250,8 +287,8 @@ const SignLogin = () => {
           جنسیت
           <br />
           <select value={gender} onChange={handleGender} required>
-            <option value="0">مرد</option>
-            <option value="1">زن</option>
+            <option value={0}>مرد</option>
+            <option value={1}>زن</option>
           </select>
         </label>
         <label>
@@ -263,9 +300,9 @@ const SignLogin = () => {
             onChange={handleStudentId}
             size="40"
             required
-            // onWheelCapture={(e) => {
-            //   e.target.blur();
-            // }}
+            onWheelCapture={(e) => {
+              e.target.blur();
+            }}
           ></input>
         </label>
         <input type="submit" className="loginButtons" value="ثبت"></input>
@@ -279,12 +316,23 @@ const SignLogin = () => {
         style={{ display: "none" }}
       >
         <label>
-          نام و نام خانوادگی
+          نام
           <br />
           <input
             type="text"
             value={name}
             onChange={handleName}
+            size="40"
+            required
+          ></input>
+        </label>
+        <label>
+          نام خانوادگی
+          <br />
+          <input
+            type="text"
+            value={lastName}
+            onChange={handleLastName}
             size="40"
             required
           ></input>
@@ -307,8 +355,8 @@ const SignLogin = () => {
           جنسیت
           <br />
           <select value={gender} onChange={handleGender} required>
-            <option value="0">مرد</option>
-            <option value="1">زن</option>
+            <option value={0}>مرد</option>
+            <option value={1}>زن</option>
           </select>
         </label>
         <label>
