@@ -29,7 +29,7 @@ const SignLogin = () => {
   const [companyCode, setCompanyCode] = useState("");
 
   //other states
-  const [isLoggedin, setIsLoggedin] = useState(false);
+  const [sending, setSending] = useState(false);
   const navigate = useNavigate();
 
   //handlers
@@ -97,15 +97,19 @@ const SignLogin = () => {
     }
   };
 
-  function doPost(url, user) {
+  function doPost(url, user, event) {
+    setSending(true);
     axios
       .post(url, user)
       .then(function (response) {
-        navigate("/");
-        return NotificationManager.success("ثبت نام با موفقیت انجام شد");
+        NotificationManager.success("ثبت نام با موفقیت انجام شد");
+        setTimeout(() => {
+          handleLogin(event);
+        }, 1000);
       })
       .catch(function (error) {
-        return NotificationManager.warning("ثبت نام با حطا مواجه شد");
+        setSending(false);
+        return NotificationManager.warning("ثبت نام با خطا مواجه شد");
       });
   }
   const handleStudentSignup = (event) => {
@@ -121,7 +125,8 @@ const SignLogin = () => {
     };
     doPost(
       "http://rezaklhor-001-site1.etempurl.com/Register/StudentRegister",
-      newUser
+      newUser,
+      event
     );
   };
   const handleTeacherSignup = (event) => {
@@ -137,7 +142,8 @@ const SignLogin = () => {
     };
     doPost(
       "http://rezaklhor-001-site1.etempurl.com/Register/ProfessorRegister",
-      newUser
+      newUser,
+      event
     );
   };
   const handleCompanySignup = async (event) => {
@@ -150,27 +156,28 @@ const SignLogin = () => {
     };
     doPost(
       "http://rezaklhor-001-site1.etempurl.com/Register/CompanyRegister",
-      newUser
+      newUser,
+      event
     );
   };
 
   const handleLogin = (event) => {
     event.preventDefault();
-    const newUser = {
+    setSending(true);
+    const currentUser = {
       username: userName,
       password: pass,
     };
     axios
-      .post("http://rezaklhor-001-site1.etempurl.com/Login", newUser)
+      .post("http://rezaklhor-001-site1.etempurl.com/Login", currentUser)
       .then(function (response) {
         localStorage.setItem("token", response.data.token);
-        NotificationManager.success("ورود با موفقیت انجام شد");
-        userFromContext.setUSER(userName)
-        setTimeout(() => {
-          navigate("/");
-        }, 1000);
+        userFromContext.setUSER(userName);
+        setSending(false);
+        navigate("/");
       })
       .catch(function (error) {
+        setSending(false);
         return NotificationManager.warning("نام کاربری یا رمز عبور نادرست است");
       });
   };
@@ -273,7 +280,12 @@ const SignLogin = () => {
             required
           ></input>
         </label>
-        <input type="submit" className="loginButtons" value="ورود"></input>
+        <input
+          disabled={sending}
+          type="submit"
+          className="loginButtons"
+          value="ورود"
+        ></input>
       </form>
       {/* //////////////////////////////////////////////////// finish login*/}
 
@@ -347,7 +359,7 @@ const SignLogin = () => {
             }}
           ></input>
         </label>
-        <input type="submit" className="loginButtons" value="ثبت"></input>
+        <input disabled={sending} type="submit" className="loginButtons" value="ثبت"></input>
       </form>
       {/* //////////////////////////////////////////////////// finish student*/}
 
@@ -421,7 +433,7 @@ const SignLogin = () => {
             }}
           ></input>
         </label>
-        <input type="submit" className="loginButtons" value="ثبت"></input>
+        <input disabled={sending} type="submit" className="loginButtons" value="ثبت"></input>
       </form>
       {/* //////////////////////////////////////////////////// finish teacher*/}
 
@@ -461,7 +473,7 @@ const SignLogin = () => {
           ></input>
         </label>
 
-        <input type="submit" className="loginButtons" value="ثبت"></input>
+        <input disabled={sending} type="submit" className="loginButtons" value="ثبت"></input>
       </form>
       {/* //////////////////////////////////////////////////// finish company*/}
       <NotificationContainer />

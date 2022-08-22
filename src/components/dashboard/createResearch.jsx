@@ -39,12 +39,12 @@ function CreateResearch() {
     //   .catch((error) => {
     //     console.log(error);
     //   });
-    axios.post('http://localhost:8000/projects',{
-            name: name,
-            area: area,
-            shortDescription: shortDescription,
-            fullDescription: fullDescription,
-          }).then(res => {console.log(res.data)})
+    // axios.post('http://localhost:8000/projects',{
+    //         name: name,
+    //         area: area,
+    //         shortDescription: shortDescription,
+    //         fullDescription: fullDescription,
+    //       }).then(res => {console.log(res.data)})
   };
 
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProfileCard = () => {
+const ProfileCard = (props) => {
   return (
     <div className="container mt-5 justify-content-center" id="profileCard">
       <div className="card">
@@ -13,8 +13,8 @@ const ProfileCard = () => {
             />
           </div>
           <div className="ml-3 w-100" style={{ padding: "15px" }}>
-            <h2 className="mb-0 mt-0">Captain</h2>
-            <h3>رضا بلک</h3>
+            <h2 className="mb-0 mt-0">{props.user.username}</h2>
+            <h3>{props.user.firstname} {props.user.lastname}</h3>
             <div className="p-2 mt-2 d-flex justify-content-between rounded text-white stats">
               <div className="d-flex flex-column">
                 <h4 className="articles">پژوهش</h4>
@@ -36,7 +36,8 @@ const ProfileCard = () => {
             </div>
           </div>
           <div className="ml-3 w-100" id="cardAbout">
-            <h5>بیو دانشجوی دانشکده فلان</h5>
+            <h5>{props.user.role}</h5>
+            <h5>دانشکدۀ {props.user.faculty}</h5>
           </div>
         </div>
       </div>

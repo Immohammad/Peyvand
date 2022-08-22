@@ -14,7 +14,7 @@ import { MdEmail } from "react-icons/md";
 // https://www.devwares.com/docs/contrast/react/components/footer/#:~:text=The%20React%20Bootstrap%205%20Footer,of%20our%20color%20palette%20classes.
 const Footer = () => {
   return (
-    <CDBFooter className="shadow"  style={{backgroundColor:"white"}}>
+    <CDBFooter className="shadow" style={{ backgroundColor: "white" }}>
       <CDBBox
         display="flex"
         flex="column"
@@ -29,7 +29,7 @@ const Footer = () => {
           </CDBBox>
 
           <CDBBox>
-            <p className="h5 mb-4 footerP" style={{ fontWeight: "600" }}>
+            <p className="h5 footerP" style={{ fontWeight: "600" }}>
               دربارۀ پیوند
             </p>
             <CDBBox
@@ -38,10 +38,11 @@ const Footer = () => {
               style={{ cursor: "pointer", padding: "0" }}
             >
               <div className="my-3" style={{ width: "250px" }}>
-                برخی اوقات به سختی می‌توانند کالاهای دل‌خواهشان را از میان حجم
-                انبوه و اغلب غیر سازمان یافته‌ی این کسب و کارها بیابند و به آن
-                دسترسی داشته باشند. از سوی دیگر در شرایط اقتصادی امروز، فرآیند
-                فروش و تامین بودجه‌ی کافی جهت بازا
+                پیوند سامانه‌ای است که با هدف تسهیل ارتباط میان دانشجویان،
+                اساتید و واحدهای فناور دانشگاه شهید بهشتی توسعه داده شده؛ امید
+                است که بتواند نیاز به نیروی انسانی در پیشبرد تمام پژوهش‌ها و
+                پروژه‌های میان‌رشته‌ای درون دانشگاه را مرتفع نماید و گوشه‌ای از موجبات تعالی
+                علمی و فناوری دانشگاه را فراهم آورد.
               </div>
             </CDBBox>
           </CDBBox>

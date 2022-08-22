@@ -10,7 +10,7 @@ function Timeline() {
   const [selectedResearch, setSelectedResearch] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:8000/projects")
+    fetch("http://rezaklhor-001-site1.etempurl.com/Project/GetAllProjects")
       .then((res) => {
         return res.json();
       })

@@ -40,13 +40,7 @@ const Navbars = () => {
           )}
 
           <Nav.Link as={Link} to="/" className="navbarFont">
-            پروژه‌ها
-          </Nav.Link>
-          <Nav.Link as={Link} to="/dashboard/myReasearchs" className="navbarFont">
-            ساخت پروژه
-          </Nav.Link>
-          <Nav.Link as={Link} to="/dashboard" className="navbarFont">
-            پروفایل
+            پژوهش‌ها
           </Nav.Link>
 
           <form className="form-inline my-2 my-lg-0" id="searchForm">
