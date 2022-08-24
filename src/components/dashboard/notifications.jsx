@@ -1,22 +1,40 @@
-import React from 'react'
-import ProfileCard from "./profileCard";
-import ProfileSidenav from "./dashboardSidenav";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
 
-function Notifications() {
+axios.defaults.headers.common["token"] = localStorage.getItem("token");
+
+function Notifications(props) {
+  const [notifs, setNotifs] = useState();
+  useEffect(() => {
+    axios
+      .get(
+        `http://rezaklhor-001-site1.etempurl.com/User/GetUserNotifs?userId=${props.user.id}`
+      )
+      .then(function (response) {
+        setNotifs(response.data);
+      })
+      .catch(function () {
+        return NotificationManager.warning("اعلانی وجود ندارد.");
+      });
+  }, []);
   return (
     <>
-      <ProfileCard />
-      <div style={{ display: "flex" }}>
-        <ProfileSidenav />
+      {notifs && notifs.map((notif) => (
         <div className="container justify-content-center" id="notif">
-          <h2>موضوع نوتیف</h2>
-          <p>از طرف کیه</p>
-          <p>شرح کوتاه</p>
-          <p>تاریخ نوتیف</p>
+          <h4>{notif.notifTittle}</h4>
+          <h6>{`از طرف ${notif.senderName}`}</h6>
+          <p>{notif.notifText}</p>
+          <p>{notif.createTime.substring(0, 10)}</p>
         </div>
-      </div>
+      ))}
+
+      <NotificationContainer />
     </>
-  )
+  );
 }
 
-export default Notifications
+export default Notifications;

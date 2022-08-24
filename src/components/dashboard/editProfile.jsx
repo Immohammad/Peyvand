@@ -5,9 +5,7 @@ import ProfileSidenav from "./dashboardSidenav";
 function EditProfile() {
   return (
     <>
-      <ProfileCard />
       <div style={{ display: "flex" }}>
-        <ProfileSidenav />
         <div>EditProfile</div>
       </div>
     </>

@@ -6,7 +6,6 @@ import FullResearch from "./fullResearch";
 
 function Timeline() {
   const [projects, setProjects] = useState(null);
-  const [filteredProjects, setFilteredProjects] = useState(null);
   const [selectedResearch, setSelectedResearch] = useState(null);
 
   useEffect(() => {
@@ -21,13 +20,13 @@ function Timeline() {
   return (
     <div>
       <div>
-        {projects && <Filter data={projects} setter={setFilteredProjects} />}
+        <Filter setter={setProjects} />
       </div>
       <div id="timelineContainer">
         <div id="timelineResearchs">
-          {filteredProjects && (
+          {projects && (
             <Research
-              projects={filteredProjects}
+              projects={projects}
               setter={setSelectedResearch}
             />
           )}

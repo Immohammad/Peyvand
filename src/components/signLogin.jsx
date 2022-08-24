@@ -172,6 +172,7 @@ const SignLogin = () => {
       .post("http://rezaklhor-001-site1.etempurl.com/Login", currentUser)
       .then(function (response) {
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("userName", userName);
         userFromContext.setUSER(userName);
         setSending(false);
         navigate("/");

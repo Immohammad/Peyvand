@@ -23,7 +23,7 @@ function DashboardSidenav() {
           </NavLink>
           <NavLink
             exact
-            to="/dashboard/myReasearchs"
+            to="/dashboard/myResearchs"
             activeClassName="activeClicked"
           >
             <CDBSidebarMenuItem icon="book">پژوهش‌های من</CDBSidebarMenuItem>

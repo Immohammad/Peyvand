@@ -1,8 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
 import Navbars from "./components/navbars";
@@ -19,10 +15,15 @@ import Profile from "./components/dashboard/profile";
 
 import NotFound from "./components/notFound";
 import User from "./components/context";
-
+import { useEffect } from "react";
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    if (localStorage.getItem("userName"))
+      setUser(localStorage.getItem("userName"));
+  }, []);
   return (
     <div className="App">
       {/* setuser in navbar, profile, login */}
@@ -30,20 +31,16 @@ function App() {
         <Router>
           <Navbars />
           <Routes>
-            <Route path="/dashboard/myReasearchs" element={<MyReasearchs />} />
-            <Route path="/dashboard/notifications" element={<Notifications />} />
-            <Route path="/dashboard/bookmarks" element={<Bookmarks />} />
-            <Route path="/dashboard/edit" element={<EditProfile />} />
+            <Route path="/dashboard/*" element={<Dashboard />} />
             <Route
-              path="/dashboard/createResearch"
-              element={<CreateResearch />}
+              path="/profile/myReasearchs"
+              exact
+              element={<MyReasearchs />}
             />
-            <Route path="/dashboard" exact element={<Dashboard />} />
-            <Route path="/profile/myReasearchs" exact element={<MyReasearchs />} />
             <Route path="/profile" exact element={<Profile />} />
             <Route path="/login" element={<Login setter={setUser} />} />
             <Route path="/" exact element={<Timeline />} />
-            <Route path="*" element={ <NotFound /> } />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
       </User.Provider>
