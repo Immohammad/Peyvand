@@ -1,32 +1,29 @@
 import React, { useEffect, useState } from "react";
-import ProfileCard from "./profileCard";
-import ProfileSidenav from "./dashboardSidenav";
+import axios from "axios";
 import Research from "../research";
-import Filter from "../filter";
+
+axios.defaults.headers.common["token"] = localStorage.getItem("token");
 
 function Bookmarks() {
-  const [projects, setProjects] = useState(null);
-  const [filteredProjects, setFilteredProjects] = useState(null);
+  const [bookmarks, setBookmarks] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:8000/projects")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setProjects(data.filter((dat) => dat.admin === "@asrejadid"));
+    axios
+      .get(
+        "http://rezaklhor-001-site1.etempurl.com/project/GetProjectsInSavebox"
+      )
+      .then(function (response) {
+        setBookmarks(response.data);
       });
   }, []);
   return (
-    <>
-      <ProfileCard />
-      <div style={{ display: "flex" }}>
-        <ProfileSidenav />
-        <div style={{ maxWidth: "80%" }}>
-        <div id="filterInBookmark">{projects && <Filter data={projects} setter={setFilteredProjects}/>}</div>
-          {filteredProjects && <Research projects={filteredProjects} />}        </div>
-      </div>
-    </>
+    <div>
+      {bookmarks ? (
+        bookmarks.map((unit) => <Research project={unit} />)
+      ) : (
+        <div className="didntFind">پژوهش ذخیره‌شده‌ای وجود ندارد.</div>
+      )}
+    </div>
   );
 }
 

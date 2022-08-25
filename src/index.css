@@ -29,7 +29,7 @@ body {
 /* *******************end of whole of project********************** */
 
 /* *******************navbar********************** */
-.navbarFont{
+.navbarFont {
   font-family: navbar;
   background-color: #334456;
   color: white !important;
@@ -41,7 +41,7 @@ body {
   padding-right: 1em;
   padding-left: 1em;
 }
-#nav-dropdown{
+#nav-dropdown {
   color: white !important;
 }
 /* *******************end of navbar********************** */
@@ -126,42 +126,43 @@ input[type="number"] {
 /* *******************end of contact form********************** */
 
 /* profile card*************** */
-.card{
+.card {
   border-radius: 10px;
-  }
-  .card h2,h3{
-    color: #DE8668;
-  }
-  .card h4{
-    color: #a1aab9;
-  }
-  #profileCardImage{
-    border-radius: 100%;
-    margin-left: 10pt;
-    margin-right: 10pt;
-  }
-  .stats{
-      background-color: #F5F5F5 !important;
-    color: #000 !important;
-    vertical-align: top; 
-  }
-  #cardFollow{
-    width: 33%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  #cardAbout{
-    padding: 0px;
-    top: 0px;
-  }
-  h5{
-    color: #000;
-  }
-  #profileCard{
-    max-width: 1000px;
-  }
-  /* profile sideBar*************** */
+}
+.card h2,
+h3 {
+  color: #de8668;
+}
+.card h4 {
+  color: #a1aab9;
+}
+#profileCardImage {
+  border-radius: 100%;
+  margin-left: 10pt;
+  margin-right: 10pt;
+}
+.stats {
+  background-color: #f5f5f5 !important;
+  color: #000 !important;
+  vertical-align: top;
+}
+#cardFollow {
+  width: 33%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#cardAbout {
+  padding: 0px;
+  top: 0px;
+}
+h5 {
+  color: #000;
+}
+#profileCard {
+  max-width: 1000px;
+}
+/* profile sideBar*************** */
 #profileSidebar {
   background-color: #334456;
   border-radius: 10px;
@@ -171,7 +172,7 @@ input[type="number"] {
 /* end of profile sideBar*************** */
 
 /* about profile*************** */
-#firstAbout{
+#firstAbout {
   border-radius: 10px;
   background-color: white;
   margin: 20pt;
@@ -180,23 +181,15 @@ input[type="number"] {
 /* end of about profile*************** */
 
 /* notif profile*************** */
-#notif{
+#notif {
   border-radius: 10px;
   background-color: white;
   border: #a1aab9;
   border-style: groove;
   margin: 20pt;
-  height: fit-content; 
+  height: fit-content;
 }
 /* end of notif profile*************** */
-
-/* bookmark profile*************** */
-#filterInBookmark{
-  border-radius: 10px;
-  border: #a1aab9;
-  border-style: groove;
-}
-/* end of bookmark profile*************** */
 
 /* timeline*************** */
 #timelineContainer {
@@ -216,34 +209,42 @@ input[type="number"] {
   border-radius: 10px;
   background-color: white;
   margin: 20pt;
-  border: solid 2px #027EA1;
+  border: solid 2px #027ea1;
 }
-#researchHeader{
+#researchHeader {
   cursor: pointer;
-  color: #027EA1;
+  color: #027ea1;
   padding-right: 5px;
   border-radius: 10px;
+  padding-bottom: 5px
 }
-#researchHeader:hover{
-  background-color: #027EA1;
+#researchHeader:hover {
+  background-color: #027ea1;
   color: white;
+}
+.fieldInResearch {
+  display: inline;
+  border-radius: 10px;
+  border: solid 1px;
+  color: "#027EA1";
+  padding: 1px;
 }
 /* end of Research*************** */
 
 /* myResearchs*************** */
-#addProject{
+#addProject {
   margin: 20pt;
-  background-color:white;
+  background-color: white;
   width: 50pt;
-   color:green;
-   border: green;
-   border-style: dashed;
-   border-radius: 8px;
+  color: green;
+  border: green;
+  border-style: dashed;
+  border-radius: 8px;
 }
 /* end of myResearch*************** */
 
 /* create Research*************** */
-#createResearch{
+#createResearch {
   height: fit-content;
   border-radius: 10px;
   background-color: white;
@@ -256,16 +257,16 @@ input[type="number"] {
 /* end of create Research*************** */
 
 /* footer*************** */
-.footerP{
-  color: #027EA1;
+.footerP {
+  color: #027ea1;
 }
 /* end of footer*************** */
 
 /* full Research*************** */
-#fullResearch{
+#fullResearch {
   background-color: white;
   border-radius: 8px;
-  border: groove #DE8668;
+  border: groove #de8668;
   position: -webkit-sticky;
   position: sticky;
   top: 70pt;
@@ -275,9 +276,20 @@ input[type="number"] {
 /* end of full Research*************** */
 
 /* cooperation*************** */
-#cooperation{
+#cooperation {
   border-radius: 8px;
   border: solid 1px black;
   margin-top: 5pt;
 }
 /* end of full cooperation*************** */
+
+/* didnt find*************** */
+.didntFind {
+  border-radius: 8px;
+  background-color: white;
+  border: #a1aab9;
+  margin: 18pt;
+  padding: 5pt;
+  height: fit-content;
+}
+/* end of didnt find*************** */

@@ -4,7 +4,7 @@ import DashboardSidenav from "./dashboardSidenav";
 import axios from "axios";
 import AboutMe from "./aboutMe";
 import { Routes, Route } from "react-router-dom";
-import MyResearchs from "./myReasearchs";
+import MyResearchs from "./myResearchs";
 import Notifications from "./notifications";
 import Bookmarks from "./bookmarks";
 import EditProfile from "./editProfile";
@@ -30,12 +30,15 @@ const Dashboard = () => {
       {current && <ProfileCard user={current} />}
       <div style={{ display: "flex" }}>
         <DashboardSidenav />
-        <div className="container justify-content-center">
+        <div className="container justify-content-center"  style={{ maxWidth: "80%" }}>
           <Routes>
-            <Route path="" element={current && <AboutMe user={current} />}/>
-            <Route path="myResearchs" element={<MyResearchs/>} />
-            <Route path="notifications" element={current && <Notifications user={current}/>} />
-            <Route path="bookmarks" element={current && <Bookmarks user={current}/>} />
+            <Route path="" element={current && <AboutMe user={current} />} />
+            <Route path="myResearchs" element={<MyResearchs />} />
+            <Route
+              path="notifications"
+              element={current && <Notifications user={current} />}
+            />
+            <Route path="bookmarks" element={<Bookmarks />} />
             <Route path="edit" element={<EditProfile />} />
             <Route path="createResearch" element={<CreateResearch />} />
           </Routes>

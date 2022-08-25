@@ -19,10 +19,18 @@ function MyReasearchs() {
   }, []);
 
   return (
-        <div>
-        <Link to="/dashboard/createResearch"><button id="addProject">+</button></Link>
-          <div style={{ maxWidth: "80%" }}>{projects && <Research projects={projects} />}</div>
-        </div>
+    <div>
+      <Link to="/dashboard/createResearch">
+        <button id="addProject">+</button>
+      </Link>
+      <div style={{ maxWidth: "80%" }}>
+        {projects ? (
+          projects.map((unit) => <Research project={unit} />)
+        ) : (
+          <div className="didntFind">تا کنون پژوهشی ساخته نشده</div>
+        )}
+      </div>
+    </div>
   );
 }
 

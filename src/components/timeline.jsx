@@ -24,15 +24,24 @@ function Timeline() {
       </div>
       <div id="timelineContainer">
         <div id="timelineResearchs">
-          {projects && (
-            <Research
-              projects={projects}
-              setter={setSelectedResearch}
-            />
+          {projects ? (
+            projects.map((unit) => (
+              <Research project={unit} setter={setSelectedResearch} />
+            ))
+          ) : (
+            <div className="didntFind">پژوهشی یافت نشد</div>
           )}
         </div>
         <div id="ResearchDescription">
-        <FullResearch data={selectedResearch} />
+          {selectedResearch ? (
+            <FullResearch data={selectedResearch} />
+          ) : (
+            <div className="container justify-content-center" id="fullResearch">
+              <p>
+                پروژهشی را انتخاب کنید تا شرح کامل آن در اینجا نمایش داده شود.
+              </p>
+            </div>
+          )}
         </div>
       </div>
       <Footer />

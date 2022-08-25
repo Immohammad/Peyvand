@@ -10,25 +10,39 @@ const Filter = (props) => {
   const [area, setArea] = useState([]);
   const [manager, setManager] = useState("");
   const [pstate, setPstate] = useState(2);
+  const [filtering, setFiltering] = useState(false);
 
   const [fieldsMenu, setFieldsMenu] = useState();
 
+  const handleArea = (event) => {
+    if (event.target.value == 1) {
+      setArea([]);
+    } else setArea([event.target.value]);
+  };
+
   const handleFilter = () => {
+    setFiltering(true);
     const userFilter = {
       workFieldsId: area,
       projectState: parseInt(pstate),
       managerRole: manager,
-      needState: parseInt(need)
+      needState: parseInt(need),
     };
-    // console.log(filter);
     axios
-        .get("http://rezaklhor-001-site1.etempurl.com/Project/GetProjectsByFilter", userFilter)
-        .then(function (response) {
-          props.setter(response.data)
-        })
-        .catch(function (error) {
-          return NotificationManager.warning("فیلتر با خطا مواجه شد");
-        });
+      .post(
+        "http://rezaklhor-001-site1.etempurl.com/Project/GetProjectsByFilter",
+        userFilter
+      )
+      .then(function (response) {
+        props.setter(response.data);
+        setFiltering(false);
+      })
+      .catch(function (error) {
+        setFiltering(false);
+        if (error.response.status == 404) {
+          props.setter(null);
+        } else return NotificationManager.warning("فیلتر با خطا مواجه شد");
+      });
   };
 
   useEffect(() => {
@@ -40,7 +54,6 @@ const Filter = (props) => {
       .catch(function () {
         NotificationManager.warning("بارگیری حوزه‌های پژوهشی با خطا مواجه شد");
       });
-
   }, []);
 
   return (
@@ -66,11 +79,10 @@ const Filter = (props) => {
           حوزۀ پژوهش{" "}
           <select
             value={area}
-            onChange={(event) => setArea([event.target.value])}
-            size="1"
+            onChange={handleArea}
             style={{ display: "inline", width: "120px" }}
           >
-            <option value="">همه</option>
+            <option value={1}>همه</option>
             {fieldsMenu &&
               fieldsMenu.map((option, index) => (
                 <option key={index} value={option.id}>
@@ -109,7 +121,11 @@ const Filter = (props) => {
           </select>
         </label>
       </div>
-      <button onClick={handleFilter} style={{ marginRight: "30px" }}>
+      <button
+        disabled={filtering}
+        onClick={handleFilter}
+        style={{ marginRight: "30px" }}
+      >
         اعمال فیلترها
       </button>
       <NotificationContainer />

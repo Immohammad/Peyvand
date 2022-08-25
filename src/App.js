@@ -6,12 +6,8 @@ import Login from "./components/signLogin";
 import Timeline from "./components/timeline";
 
 import Dashboard from "./components/dashboard/dashboard";
-import MyReasearchs from "./components/dashboard/myReasearchs";
-import Notifications from "./components/dashboard/notifications";
-import Bookmarks from "./components/dashboard/bookmarks";
-import EditProfile from "./components/dashboard/editProfile";
-import CreateResearch from "./components/dashboard/createResearch";
-import Profile from "./components/dashboard/profile";
+import MyReasearchs from "./components/dashboard/myResearchs";
+import Profile from "./components/profile";
 
 import NotFound from "./components/notFound";
 import User from "./components/context";
@@ -32,12 +28,7 @@ function App() {
           <Navbars />
           <Routes>
             <Route path="/dashboard/*" element={<Dashboard />} />
-            <Route
-              path="/profile/myReasearchs"
-              exact
-              element={<MyReasearchs />}
-            />
-            <Route path="/profile" exact element={<Profile />} />
+            <Route path="/profile/:id/*" element={<Profile />} />
             <Route path="/login" element={<Login setter={setUser} />} />
             <Route path="/" exact element={<Timeline />} />
             <Route path="*" element={<NotFound />} />

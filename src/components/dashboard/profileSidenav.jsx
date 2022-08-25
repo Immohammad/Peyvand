@@ -18,12 +18,12 @@ function ProfileSidenav() {
       <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>} />
       <CDBSidebarContent className="sidebar-content">
         <CDBSidebarMenu>
-          <NavLink exact to="/profile" activeClassName="activeClicked">
+          <NavLink exact to="/profile/:id" activeClassName="activeClicked">
             <CDBSidebarMenuItem icon="user">دربارۀ من</CDBSidebarMenuItem>
           </NavLink>
           <NavLink
             exact
-            to="/profile/myReasearchs"
+            to="/profile/:id/myReasearchs"
             activeClassName="activeClicked"
           >
             <CDBSidebarMenuItem icon="book">پژوهش‌های من</CDBSidebarMenuItem>
