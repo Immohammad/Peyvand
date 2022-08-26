@@ -45,7 +45,7 @@ const ProfileCard = (props) => {
               </div>
             </div>
             <div className="button mt-2 flex-row align-items-center">
-              <button className="btn btn-sm btn-primary" id="cardFollow">
+              <button className="btn btn-sm btn-primary" id="cardFollow" disabled={!localStorage.getItem('token') || localStorage.getItem('userName')== props.user.username}>
                 دنبال‌کردن
               </button>
             </div>

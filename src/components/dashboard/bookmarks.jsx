@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Research from "../research";
 
-axios.defaults.headers.common["token"] = localStorage.getItem("token");
+axios.defaults.headers.common["Authorization"] =
+  "Bearer " + localStorage.getItem("token");
 
 function Bookmarks() {
   const [bookmarks, setBookmarks] = useState(null);

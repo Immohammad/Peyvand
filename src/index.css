@@ -227,7 +227,9 @@ h5 {
   border-radius: 10px;
   border: solid 1px;
   color: "#027EA1";
-  padding: 1px;
+  padding-left: 2px;
+  padding-right: 2px;
+  margin: 3px;
 }
 /* end of Research*************** */
 
@@ -244,7 +246,7 @@ h5 {
 /* end of myResearch*************** */
 
 /* create Research*************** */
-#createResearch {
+.createResearch {
   height: fit-content;
   border-radius: 10px;
   background-color: white;

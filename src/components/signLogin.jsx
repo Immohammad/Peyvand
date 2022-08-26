@@ -340,8 +340,8 @@ const SignLogin = () => {
           جنسیت
           <br />
           <select value={gender} onChange={handleGender} required>
-            <option value={0}>مرد</option>
-            <option value={1}>زن</option>
+            <option value={0}>آقا</option>
+            <option value={1}>خانم</option>
           </select>
         </label>
         <label>

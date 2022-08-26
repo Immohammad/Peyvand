@@ -18,8 +18,6 @@ function CreateResearch() {
 
   const [fieldsMenu, setFieldsMenu] = useState();
 
-  const [projectId, setProjectId] = useState("");
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -46,28 +44,28 @@ function CreateResearch() {
           axios.post(
             `http://rezaklhor-001-site1.etempurl.com/WorkField/AddWorkFieldToProject?projectId=${response.data.id}&workId=${area}`
           );
-        else return;
+        // else return;
         if (secondArea != 1)
           axios.post(
             `http://rezaklhor-001-site1.etempurl.com/WorkField/AddWorkFieldToProject?projectId=${response.data.id}&workId=${secondArea}`
           );
-        else return;
+        // else return;
         if (thirdArea != 1)
           axios.post(
             `http://rezaklhor-001-site1.etempurl.com/WorkField/AddWorkFieldToProject?projectId=${response.data.id}&workId=${thirdArea}`
           );
-        else return;
+        // else return;
+        navigate("/dashboard/myResearchs");
+        return NotificationManager.success("پژوهش ساخته شد");
       })
       .catch(() => {
-        return NotificationManager.warning("ثبت نام با خطا مواجه شد");
+        return NotificationManager.warning("ساخت پژوهش با خطا مواجه شد");
       });
-      navigate("/dashboard/myResearch");
-      return NotificationManager.success("پژوهش ساخته شد");
   };
 
   return (
     <>
-      <div className="container justify-content-center" id="createResearch">
+      <div className="container justify-content-center createResearch">
         <form onSubmit={handleCreate}>
           <label>
             عنوان پژوهش

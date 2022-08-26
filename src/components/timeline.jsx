@@ -3,18 +3,20 @@ import Research from "./research";
 import Footer from "./footer";
 import Filter from "./filter";
 import FullResearch from "./fullResearch";
+import axios from "axios";
 
 function Timeline() {
   const [projects, setProjects] = useState(null);
   const [selectedResearch, setSelectedResearch] = useState(null);
 
   useEffect(() => {
-    fetch("http://rezaklhor-001-site1.etempurl.com/Project/GetAllProjects")
-      .then((res) => {
-        return res.json();
+    axios.get("http://rezaklhor-001-site1.etempurl.com/Project/GetAllProjects")
+      .then((response) => {
+        setProjects(response.data);
       })
-      .then((data) => {
-        setProjects(data);
+      .catch((error) => {
+       if(error.response.status == 404)
+       setProjects(null)
       });
   }, []);
   return (

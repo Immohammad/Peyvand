@@ -6,7 +6,6 @@ import Login from "./components/signLogin";
 import Timeline from "./components/timeline";
 
 import Dashboard from "./components/dashboard/dashboard";
-import MyReasearchs from "./components/dashboard/myResearchs";
 import Profile from "./components/profile";
 
 import NotFound from "./components/notFound";

@@ -25,7 +25,7 @@ const Research = (props) => {
       {fields &&
         fields.map((unit) => (
           <h5 className="fieldInResearch">
-            {unit.name}
+            {unit.name}{" "}
           </h5>
         ))}
       <hr />

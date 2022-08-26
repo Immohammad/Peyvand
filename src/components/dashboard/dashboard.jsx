@@ -10,7 +10,7 @@ import Bookmarks from "./bookmarks";
 import EditProfile from "./editProfile";
 import CreateResearch from "./createResearch";
 
-axios.defaults.headers.common["token"] = localStorage.getItem("token");
+axios.defaults.headers.common['Authorization'] = "Bearer " + localStorage.getItem('token');
 
 const Dashboard = () => {
   const [current, setCurrent] = useState();
@@ -33,13 +33,13 @@ const Dashboard = () => {
         <div className="container justify-content-center"  style={{ maxWidth: "80%" }}>
           <Routes>
             <Route path="" element={current && <AboutMe user={current} />} />
-            <Route path="myResearchs" element={<MyResearchs />} />
+            <Route path="myResearchs" element={current && <MyResearchs user={current}/>} />
             <Route
               path="notifications"
               element={current && <Notifications user={current} />}
             />
             <Route path="bookmarks" element={<Bookmarks />} />
-            <Route path="edit" element={<EditProfile />} />
+            <Route path="edit" element={current && <EditProfile user={current}/>} />
             <Route path="createResearch" element={<CreateResearch />} />
           </Routes>
         </div>

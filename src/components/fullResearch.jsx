@@ -4,6 +4,7 @@ import { MdDescription } from "react-icons/md";
 import { GrUserManager } from "react-icons/gr";
 import { MdPeopleAlt } from "react-icons/md";
 import { VscGitPullRequestCreate } from "react-icons/vsc";
+import { FaNewspaper } from "react-icons/fa";
 import axios from "axios";
 
 const FullResearch = (props) => {
@@ -11,6 +12,7 @@ const FullResearch = (props) => {
   const [managers, setManagers] = useState();
   const [participator, setParticipator] = useState();
   const [needs, setNeeds] = useState();
+  const [announcements, setAnnouncements] = useState();
 
   useEffect(() => {
     axios
@@ -23,6 +25,16 @@ const FullResearch = (props) => {
       .catch(function () {
         setFields(null);
       });
+      axios
+        .get(
+          `http://rezaklhor-001-site1.etempurl.com/User/GetUsersParticipates?projectId=${props.data.id}`
+        )
+        .then(function (response) {
+          setParticipator(response.data);
+        })
+        .catch(function () {
+          setParticipator(null);
+        });
     axios
       .get(
         `http://rezaklhor-001-site1.etempurl.com/Apply/GetAnnouncementsForProjectWithApplications?projectId=${props.data.id}`
@@ -32,16 +44,6 @@ const FullResearch = (props) => {
       })
       .catch(function () {
         setNeeds(null);
-      });
-    axios
-      .get(
-        `http://rezaklhor-001-site1.etempurl.com/User/GetUsersParticipates?projectId=${props.data.id}`
-      )
-      .then(function (response) {
-        setParticipator(response.data);
-      })
-      .catch(function () {
-        setParticipator(null);
       });
   }, [props.data]);
   return (
@@ -68,6 +70,9 @@ const FullResearch = (props) => {
         <VscGitPullRequestCreate style={{ display: "inline" }} />{" "}
         <h5 style={{ display: "inline" }}>نیاز به همکاری</h5>
         <Cooperation />
+        <hr />
+        <FaNewspaper style={{ display: "inline" }} />{" "}
+        <h5 style={{ display: "inline" }}>اطلاعیه‌ها</h5>
         <hr />
         <p>{props.data.createTime.substring(0, 10)}</p>
       </div>

@@ -12,6 +12,8 @@ const Filter = (props) => {
   const [pstate, setPstate] = useState(2);
   const [filtering, setFiltering] = useState(false);
 
+  const [search, setSearch] = useState();
+
   const [fieldsMenu, setFieldsMenu] = useState();
 
   const handleArea = (event) => {
@@ -45,6 +47,27 @@ const Filter = (props) => {
       });
   };
 
+  const handleSearch = (event) => {
+    event.preventDefault();
+    if (search) {
+      axios
+        .get(
+          `http://rezaklhor-001-site1.etempurl.com/project/GetProjectByName?name=${search}`
+        )
+        .then((response) => {
+          props.setter(response.data);
+          NotificationManager.success("جستجو انجام شد");
+        })
+        .catch((error) => {
+          if (error.response.status == 404) {
+            NotificationManager.warning("پژوهش مورد نظر وجود ندارد");
+          } else {
+            NotificationManager.warning("جستجو با مشکلی مواجه شد");
+          }
+        });
+    }
+  };
+
   useEffect(() => {
     axios
       .get("http://rezaklhor-001-site1.etempurl.com/WorkField/GetAllWorkFields")
@@ -66,7 +89,7 @@ const Filter = (props) => {
           <select
             value={need}
             onChange={(event) => setNeed(event.target.value)}
-            style={{ display: "inline", width: "60px" }}
+            style={{ display: "inline", width: "50px" }}
           >
             <option value={2}>همه</option>
             <option value={0}>بله</option>
@@ -74,7 +97,7 @@ const Filter = (props) => {
           </select>
         </label>
       </div>
-      <div style={{ display: "inline", paddingRight: "30px" }}>
+      <div style={{ display: "inline", paddingRight: "20px" }}>
         <label style={{ display: "inline", fontWeight: "bold" }}>
           حوزۀ پژوهش{" "}
           <select
@@ -92,13 +115,13 @@ const Filter = (props) => {
           </select>
         </label>
       </div>
-      <div style={{ display: "inline", paddingRight: "30px" }}>
+      <div style={{ display: "inline", paddingRight: "20px" }}>
         <label style={{ display: "inline", fontWeight: "bold" }}>
           نقش مدیر{" "}
           <select
             value={manager}
             onChange={(event) => setManager(event.target.value)}
-            style={{ display: "inline", width: "70px" }}
+            style={{ display: "inline", width: "67px" }}
           >
             <option value="">همه</option>
             <option value="Professor">استاد</option>
@@ -107,13 +130,13 @@ const Filter = (props) => {
           </select>
         </label>
       </div>
-      <div style={{ display: "inline", paddingRight: "30px" }}>
+      <div style={{ display: "inline", paddingRight: "20px" }}>
         <label style={{ display: "inline", fontWeight: "bold" }}>
           وضعیت پژوهش{" "}
           <select
             value={pstate}
             onChange={(event) => setPstate(event.target.value)}
-            style={{ display: "inline", width: "100px" }}
+            style={{ display: "inline", width: "103px" }}
           >
             <option value={2}>همه</option>
             <option value={1}>پایان‌یافته</option>
@@ -124,10 +147,41 @@ const Filter = (props) => {
       <button
         disabled={filtering}
         onClick={handleFilter}
-        style={{ marginRight: "30px" }}
+        style={{
+          marginRight: "10px",
+          backgroundColor: "white",
+          borderRadius: "7px",
+        }}
       >
         اعمال فیلترها
       </button>
+      <form
+        className="form-inline my-2 my-lg-0"
+        id="searchForm"
+        onSubmit={handleSearch}
+        style={{ display: "inline" }}
+      >
+        <input
+          className="form-control mr-sm-2"
+          value={search}
+          onChange={(event) => setSearch(event.target.value)}
+          type="search"
+          style={{
+            marginRight: "40px",
+            backgroundColor: "white",
+            borderRadius: "7px",
+            width: "150px",
+            display: "inline",
+          }}
+          placeholder="جستجوی نام پروژه"
+        />
+        <button
+          type="submit"
+          style={{ backgroundColor: "white", borderRadius: "7px" }}
+        >
+          جستجو
+        </button>
+      </form>
       <NotificationContainer />
     </div>
   );
