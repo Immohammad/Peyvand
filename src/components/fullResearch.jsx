@@ -6,6 +6,7 @@ import { MdPeopleAlt } from "react-icons/md";
 import { VscGitPullRequestCreate } from "react-icons/vsc";
 import { FaNewspaper } from "react-icons/fa";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const FullResearch = (props) => {
   const [fields, setFields] = useState();
@@ -14,6 +15,7 @@ const FullResearch = (props) => {
   const [needs, setNeeds] = useState();
   const [announcements, setAnnouncements] = useState();
 
+  const navigate = useNavigate();
   useEffect(() => {
     axios
       .get(
@@ -25,16 +27,26 @@ const FullResearch = (props) => {
       .catch(function () {
         setFields(null);
       });
-      axios
-        .get(
-          `http://rezaklhor-001-site1.etempurl.com/User/GetUsersParticipates?projectId=${props.data.id}`
-        )
-        .then(function (response) {
-          setParticipator(response.data);
-        })
-        .catch(function () {
-          setParticipator(null);
-        });
+    axios
+      .get(
+        `http://rezaklhor-001-site1.etempurl.com/Project/GetProjectManagers?projectId=${props.data.id}`
+      )
+      .then(function (response) {
+        setManagers(response.data);
+      })
+      .catch(function () {
+        setManagers(null);
+      });
+    axios
+      .get(
+        `http://rezaklhor-001-site1.etempurl.com/User/GetUsersParticipates?projectId=${props.data.id}`
+      )
+      .then(function (response) {
+        setParticipator(response.data);
+      })
+      .catch(function () {
+        setParticipator(null);
+      });
     axios
       .get(
         `http://rezaklhor-001-site1.etempurl.com/Apply/GetAnnouncementsForProjectWithApplications?projectId=${props.data.id}`
@@ -54,7 +66,7 @@ const FullResearch = (props) => {
         </h3>
         {fields &&
           fields.map((unit) => (
-            <h5 className="fieldInResearch">{unit.name}</h5>
+            <h5 className="fieldInResearch">{unit.name} </h5>
           ))}
         <hr />
         <MdDescription style={{ display: "inline" }} />{" "}
@@ -63,6 +75,12 @@ const FullResearch = (props) => {
         <hr />
         <GrUserManager style={{ display: "inline" }} />{" "}
         <h5 style={{ display: "inline" }}>مدیران</h5>
+        {managers &&
+          managers.map((option, index) => (
+            <p key={index} onClick={() => navigate(`/profile/${option.id}`)}>
+              {option.username}
+            </p>
+          ))}
         <hr />
         <MdPeopleAlt style={{ display: "inline" }} />{" "}
         <h5 style={{ display: "inline" }}>شرکت‌کنندگان</h5>

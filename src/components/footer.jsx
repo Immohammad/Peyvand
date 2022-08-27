@@ -35,7 +35,7 @@ const Footer = () => {
             <CDBBox
               display="flex"
               flex="column"
-              style={{ cursor: "pointer", padding: "0" }}
+              style={{ padding: "0" }}
             >
               <div className="my-3" style={{ width: "250px" }}>
                 پیوند سامانه‌ای است که با هدف تسهیل ارتباط میان دانشجویان،
@@ -53,7 +53,7 @@ const Footer = () => {
             <CDBBox
               display="flex"
               flex="column"
-              style={{ cursor: "pointer", padding: "0" }}
+              style={{ padding: "0" }}
             >
               <MdEmail />
               <span>mo.movahedinia@gmail.com</span>
@@ -77,7 +77,7 @@ const Footer = () => {
         >
           <small className="text-center" style={{ width: "50%" }}>
             &copy; کلیه حقوق این وب‌سایت متعلق به مجموعۀ پیوند بهشتی می‌باشد.
-            ساخته‌شده با افتخار در ایران | 1401.
+            ساخته‌شده با افتخار در ایران | 1401
           </small>
         </CDBBox>
       </CDBBox>

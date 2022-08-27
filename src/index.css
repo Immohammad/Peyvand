@@ -133,9 +133,6 @@ input[type="number"] {
 h3 {
   color: #de8668;
 }
-.card h4 {
-  color: #a1aab9;
-}
 #profileCardImage {
   border-radius: 100%;
   margin-left: 10pt;
@@ -226,7 +223,6 @@ h5 {
   display: inline;
   border-radius: 10px;
   border: solid 1px;
-  color: "#027EA1";
   padding-left: 2px;
   padding-right: 2px;
   margin: 3px;
@@ -295,3 +291,31 @@ h5 {
   height: fit-content;
 }
 /* end of didnt find*************** */
+
+/* TA requests*************** */
+#taReqsContainer{
+  border-radius: 10px;
+  background-color: white;
+  border: solid 2px #C3B69F;
+  margin: 20pt;
+  height: fit-content;
+}
+
+#taReqsHeader {
+  color: #b3a081;
+  padding-right: 5px;
+  padding-bottom: 5px
+}
+#reqTeacher{
+  cursor: pointer;
+  /* padding-right: 5px; */
+  border-radius: 10px;
+  /* padding-bottom: 5px; */
+  display: inline;
+  padding: 5px;
+}
+#reqTeacher:hover {
+  background-color: #b2a287;
+  color: white;
+}
+/* end of TA requests*************** */

@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import EmptyProfile from "../stuffs/blank-profile-drawing.png";
 
 const ProfileCard = (props) => {
   const [statistics, setStatistics] = useState(null);
@@ -20,7 +21,7 @@ const ProfileCard = (props) => {
         <div className="d-flex align-items-center">
           <div className="image">
             <img
-              src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"
+              src={EmptyProfile}
               id="profileCardImage"
               width="155"
             />
@@ -32,15 +33,15 @@ const ProfileCard = (props) => {
             </h3>
             <div className="p-2 mt-2 d-flex justify-content-between rounded text-white stats">
               <div className="d-flex flex-column">
-                <h4 className="articles">پژوهش</h4>
+                <h5 className="articles" style={{color: "#a1aab9"}}>پژوهش</h5>
                 <h5 className="number1">{statistics && statistics.totalProjects}</h5>
               </div>
               <div className="d-flex flex-column">
-                <h4 className="followers">دنبال‌کننده</h4>
+                <h5 className="followers" style={{color: "#a1aab9"}}>دنبال‌کننده</h5>
                 <h5 className="number2">{statistics && statistics.totalFollowers}</h5>
               </div>
               <div className="d-flex flex-column">
-                <h4 className="rating">دنبال‌کردن</h4>
+                <h5 className="rating" style={{color: "#a1aab9"}}>دنبال‌کردن</h5>
                 <h5 className="number3">{statistics && statistics.totalFollowings}</h5>
               </div>
             </div>
@@ -51,8 +52,8 @@ const ProfileCard = (props) => {
             </div>
           </div>
           <div className="ml-3 w-100" id="cardAbout">
-            <h5>{props.user.role}</h5>
-            <h5>{props.user.faculty && (`دانشکدۀ ${props.user.faculty}`)}</h5>
+            <h5 style={{color: "#027EA1"}}>{props.user.role}</h5>
+            <h5 style={{color: "#027EA1"}}>{props.user.faculty && (`${props.user.faculty}`)}</h5>
           </div>
         </div>
       </div>

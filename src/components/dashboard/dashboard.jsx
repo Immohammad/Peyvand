@@ -41,6 +41,7 @@ const Dashboard = () => {
             <Route path="bookmarks" element={<Bookmarks />} />
             <Route path="edit" element={current && <EditProfile user={current}/>} />
             <Route path="createResearch" element={<CreateResearch />} />
+            <Route path="createRequest" element={<CreateRequest />} />
           </Routes>
         </div>
       </div>

@@ -11,6 +11,7 @@ import Profile from "./components/profile";
 import NotFound from "./components/notFound";
 import User from "./components/context";
 import { useEffect } from "react";
+import TaRequests from "./components/taRequests";
 
 function App() {
   const [user, setUser] = useState();
@@ -29,6 +30,7 @@ function App() {
             <Route path="/dashboard/*" element={<Dashboard />} />
             <Route path="/profile/:id/*" element={<Profile />} />
             <Route path="/login" element={<Login setter={setUser} />} />
+            <Route path="/taRequests" element={<TaRequests/>} />
             <Route path="/" exact element={<Timeline />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

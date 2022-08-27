@@ -68,6 +68,9 @@ const Navbars = () => {
           <Nav.Link as={Link} to="/" className="navbarFont">
             پژوهش‌ها
           </Nav.Link>
+          <Nav.Link as={Link} to="/taRequests" className="navbarFont">
+            موقعیت‌های درس‌یار
+          </Nav.Link>
 
           <form
             className="form-inline my-2 my-lg-0"

@@ -179,7 +179,7 @@ const SignLogin = () => {
       })
       .catch(function (error) {
         setSending(false);
-        return NotificationManager.warning("نام کاربری یا رمز عبور نادرست است");
+        NotificationManager.warning("نام کاربری یا رمز عبور نادرست است");
       });
   };
   return (
@@ -330,7 +330,7 @@ const SignLogin = () => {
             placeholder="ده رقم کد ملی را بدون خط فاصله وارد کنید"
             size="40"
             required
-            style={{ width: "100" }}
+            style={{ width: "100%" }}
             onWheelCapture={(e) => {
               e.target.blur();
             }}
@@ -414,8 +414,8 @@ const SignLogin = () => {
           جنسیت
           <br />
           <select value={gender} onChange={handleGender} required>
-            <option value={0}>مرد</option>
-            <option value={1}>زن</option>
+            <option value={0}>آقا</option>
+            <option value={1}>خانم</option>
           </select>
         </label>
         <label>
@@ -467,7 +467,7 @@ const SignLogin = () => {
             maxLength="10"
             size="40"
             required
-            style={{ width: "100" }}
+            style={{ width: "100%" }}
             onWheelCapture={(e) => {
               e.target.blur();
             }}
@@ -475,9 +475,9 @@ const SignLogin = () => {
         </label>
 
         <input disabled={sending} type="submit" className="loginButtons" value="ثبت"></input>
+      
       </form>
       {/* //////////////////////////////////////////////////// finish company*/}
-      <NotificationContainer />
     </div>
   );
 };
