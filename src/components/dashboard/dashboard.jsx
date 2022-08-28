@@ -9,6 +9,7 @@ import Notifications from "./notifications";
 import Bookmarks from "./bookmarks";
 import EditProfile from "./editProfile";
 import CreateResearch from "./createResearch";
+import CreateRequest from "./createRequest";
 
 axios.defaults.headers.common['Authorization'] = "Bearer " + localStorage.getItem('token');
 

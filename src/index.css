@@ -4,6 +4,8 @@
 #C3B69F light brown
 #F2EEE0 kerem
 #DE8668 orange
+
+#C3B69F
 */
 
 /* *******************fonts********************** */
@@ -185,6 +187,7 @@ h5 {
   border-style: groove;
   margin: 20pt;
   height: fit-content;
+  max-width: 80%;
 }
 /* end of notif profile*************** */
 
@@ -236,6 +239,14 @@ h5 {
   width: 50pt;
   color: green;
   border: green;
+  border-style: dashed;
+  border-radius: 8px;
+}
+#addRequest {
+  margin: 20pt;
+  background-color: white;
+  color: #DE8668;
+  border: #DE8668;
   border-style: dashed;
   border-radius: 8px;
 }

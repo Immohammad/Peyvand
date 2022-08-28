@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Cooperation from "./cooperation";
-import { MdDescription } from "react-icons/md";
+import { MdDescription, MdPeopleAlt } from "react-icons/md";
 import { GrUserManager } from "react-icons/gr";
-import { MdPeopleAlt } from "react-icons/md";
 import { VscGitPullRequestCreate } from "react-icons/vsc";
 import { FaNewspaper } from "react-icons/fa";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import {BsBookmark} from "react-icons/bs"
 
 const FullResearch = (props) => {
   const [fields, setFields] = useState();
@@ -92,7 +92,8 @@ const FullResearch = (props) => {
         <FaNewspaper style={{ display: "inline" }} />{" "}
         <h5 style={{ display: "inline" }}>اطلاعیه‌ها</h5>
         <hr />
-        <p>{props.data.createTime.substring(0, 10)}</p>
+        <span>{props.data.createTime.substring(0, 10)}</span>
+        <span style={{marginRight: "10px"}}><BsBookmark/></span>
       </div>
     </div>
   );

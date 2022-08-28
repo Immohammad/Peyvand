@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
+import {BsBookmark} from "react-icons/bs"
 
 const Research = (props) => {
   const [fields, setFields] = useState();
@@ -31,7 +32,8 @@ const Research = (props) => {
       <hr />
 
       <p>{props.project.projectExplain}</p>
-      <p>{props.project.createTime.substring(0, 10)}</p>
+      <span>{props.project.createTime.substring(0, 10)}</span>
+      <span style={{marginRight: "10px"}}><BsBookmark/></span>
     </div>
   );
 };

@@ -26,6 +26,9 @@ function MyReasearchs(props) {
       <Link to="/dashboard/createResearch">
         <button id="addProject">+</button>
       </Link>
+      {(props.user.role=="Professor") && <Link to="/dashboard/createRequest">
+        <button id="addRequest">ایجاد موقعیت درس‌یار</button>
+      </Link>}
       <div id="timelineContainer">
         <div  id="timelineResearchs">
           {projects ? (
