@@ -6,8 +6,7 @@ import {
   NotificationManager,
 } from "react-notifications";
 
-axios.defaults.headers.common["Authorization"] =
-  "Bearer " + localStorage.getItem("token");
+axios.defaults.headers.common["Authorization"] ="Bearer " + localStorage.getItem("token");
 
 function TaRequest(props) {
   const [teacher, setTeacher] = useState();

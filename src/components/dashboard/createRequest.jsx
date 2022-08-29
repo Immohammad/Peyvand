@@ -10,30 +10,31 @@ axios.defaults.headers.common["Authorization"] =
   "Bearer " + localStorage.getItem("token");
 
 function CreateResearch() {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+  const [name, setName] = useState();
+  const [description, setDescription] = useState();
 
   const navigate = useNavigate();
 
-//   useEffect(() => {
-//     axios
-//       .get("http://rezaklhor-001-site1.etempurl.com/WorkField/GetAllWorkFields")
-//       .then(function (response) {
-//         setFieldsMenu(response.data);
-//       })
-//       .catch(function () {
-//         NotificationManager.warning("بارگیری حوزه‌های پژوهشی با خطا مواجه شد");
-//       });
-//   }, []);
-
   const handleCreate = (event) => {
     event.preventDefault();
-    
+    const info = { tittle: name, text: description };
+    axios
+      .post("http://rezaklhor-001-site1.etempurl.com/Ta/CreateTaRequest", info)
+      .then(function () {
+        NotificationManager.success("موقعیت درس‌یار ساخته شد");
+        navigate("/dashboard/myResearchs");
+      })
+      .catch(function () {
+        NotificationManager.warning("مشکلی پیش آمد");
+      });
   };
 
   return (
     <>
-      <div className="container justify-content-center createResearch" style={{borderColor:"#C3B69F"}}>
+      <div
+        className="container justify-content-center createResearch"
+        style={{ borderColor: "#C3B69F" }}
+      >
         <form onSubmit={handleCreate}>
           <label>
             عنوان موقعیت
@@ -57,7 +58,7 @@ function CreateResearch() {
               onChange={(event) => setDescription(event.target.value)}
               style={{ width: "100%" }}
               placeholder="شرایط و شرح وظیفه را وارد کنید"
-              rows={4}
+              rows={6}
               required
             ></textarea>
           </label>

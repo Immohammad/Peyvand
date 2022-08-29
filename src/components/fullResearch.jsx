@@ -6,12 +6,12 @@ import { VscGitPullRequestCreate } from "react-icons/vsc";
 import { FaNewspaper } from "react-icons/fa";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import {BsBookmark} from "react-icons/bs"
+import { BsBookmark } from "react-icons/bs";
 
 const FullResearch = (props) => {
   const [fields, setFields] = useState();
   const [managers, setManagers] = useState();
-  const [participator, setParticipator] = useState();
+  const [participators, setParticipators] = useState();
   const [needs, setNeeds] = useState();
   const [announcements, setAnnouncements] = useState();
 
@@ -42,10 +42,10 @@ const FullResearch = (props) => {
         `http://rezaklhor-001-site1.etempurl.com/User/GetUsersParticipates?projectId=${props.data.id}`
       )
       .then(function (response) {
-        setParticipator(response.data);
+        setParticipators(response.data);
       })
       .catch(function () {
-        setParticipator(null);
+        setParticipators(null);
       });
     axios
       .get(
@@ -77,23 +77,55 @@ const FullResearch = (props) => {
         <h5 style={{ display: "inline" }}>مدیران</h5>
         {managers &&
           managers.map((option, index) => (
-            <p key={index} onClick={() => navigate(`/profile/${option.id}`)}>
+            <p
+              key={index}
+              onClick={() => navigate(`/profile/${option.id}`)}
+              style={{ cursor: "pointer" }}
+            >
               {option.username}
             </p>
           ))}
         <hr />
         <MdPeopleAlt style={{ display: "inline" }} />{" "}
         <h5 style={{ display: "inline" }}>شرکت‌کنندگان</h5>
+        {participators &&
+          participators.map((option, index) => (
+            <p
+              key={index}
+              onClick={() => navigate(`/profile/${option.id}`)}
+              style={{ cursor: "pointer" }}
+            >
+              {option.username}
+            </p>
+          ))}
         <hr />
         <VscGitPullRequestCreate style={{ display: "inline" }} />{" "}
         <h5 style={{ display: "inline" }}>نیاز به همکاری</h5>
-        <Cooperation />
+        <button
+          style={{
+            marginRight:"10px",
+            backgroundColor: "white",
+            width: "25pt",
+            color: "green",
+            border: "solid 2px green",
+            borderRadius: "100%",
+            // display:((localStorage.getItem("token")) ? reqToggle : "none")
+          }}
+        >
+          +
+        </button>
+        {needs &&
+          needs.map((option, index) => (
+            <Cooperation key={index} need={option} />
+          ))}
         <hr />
         <FaNewspaper style={{ display: "inline" }} />{" "}
         <h5 style={{ display: "inline" }}>اطلاعیه‌ها</h5>
         <hr />
         <span>{props.data.createTime.substring(0, 10)}</span>
-        <span style={{marginRight: "10px"}}><BsBookmark/></span>
+        <span style={{ marginRight: "10px" }}>
+          <BsBookmark />
+        </span>
       </div>
     </div>
   );
