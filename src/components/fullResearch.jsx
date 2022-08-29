@@ -7,6 +7,10 @@ import { FaNewspaper } from "react-icons/fa";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { BsBookmark } from "react-icons/bs";
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
 
 const FullResearch = (props) => {
   const [fields, setFields] = useState();
@@ -15,6 +19,7 @@ const FullResearch = (props) => {
   const [needs, setNeeds] = useState();
   const [announcementText, setAnnouncementText] = useState();
   const [announcementTitle, setAnnouncementTitle] = useState();
+  const [pushed, setPushed] = useState(false);
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -60,8 +65,18 @@ const FullResearch = (props) => {
       });
   }, [props.data]);
 
-function handleAnnounceCreate() {
-  
+function handleAnnounceCreate(event) {
+  event.preventDefault();
+    const info = { tittle: announcementTitle, text: announcementText , projectId: props.data.id};
+    axios
+      .post("http://rezaklhor-001-site1.etempurl.com/Apply/CreateCoAnnouncement", info)
+      .then(function () {
+        NotificationManager.success("فراخوان ساخته شد");
+        props.closer("none")
+      })
+      .catch(function () {
+        NotificationManager.warning("مشکلی پیش آمد");
+      });
 }
 
   return (
@@ -108,6 +123,7 @@ function handleAnnounceCreate() {
         <VscGitPullRequestCreate style={{ display: "inline" }} />{" "}
         <h5 style={{ display: "inline" }}>نیاز به همکاری</h5>
         <button
+            onClick={() => setPushed(true)}
           style={{
             marginRight:"10px",
             backgroundColor: "white",
@@ -122,13 +138,13 @@ function handleAnnounceCreate() {
         </button>
         <div
         className="container justify-content-center createResearch"
-        style={{ borderColor: "#C3B69F" , maxWidth:"95%"}}
+        style={{ borderColor: "#C3B69F" , maxWidth:"95%", display:(((props.announce) && pushed) ? "block" : "none")}}
       >
         <form onSubmit={handleAnnounceCreate}>
-            <p>فرم درخواست مشارکت در پژوهش</p>
+            <p>فراخوان مشارکت در پژوهش</p>
 
           <label>
-            عنوان درخواست
+            عنوان فراخوان
             <br />
             <input
               type="text"
@@ -147,6 +163,7 @@ function handleAnnounceCreate() {
               onChange={(event) => setAnnouncementText(event.target.value)}
               style={{ width: "100%" }}
               required
+              rows={4}
             ></textarea>
           </label>
 
@@ -156,7 +173,7 @@ function handleAnnounceCreate() {
             value="افزودن"
             style={{ width: "50%" , marginTop:"5px"}}
           ></input>
-          <button onClick={() => props.closer("none")} style={{
+          <button onClick={() => setPushed(false)} style={{
           marginRight: "10px",
           backgroundColor: "white",
           borderRadius: "7px",

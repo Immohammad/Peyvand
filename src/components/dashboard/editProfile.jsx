@@ -7,8 +7,7 @@ import {
 } from "react-notifications";
 import { useState, useEffect } from "react";
 
-axios.defaults.headers.common["Authorization"] =
-  "Bearer " + localStorage.getItem("token");
+axios.defaults.headers.common["Authorization"] = ("Bearer " + localStorage.getItem("token"));
 
 function EditProfile(props) {
   const [name, setName] = useState(props.user.username);

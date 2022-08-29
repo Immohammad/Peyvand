@@ -7,7 +7,7 @@ import {
   NotificationManager,
 } from "react-notifications";
 
-axios.defaults.headers.common["Authorization"] ="Bearer " + localStorage.getItem("token");
+axios.defaults.headers.common["Authorization"] = ("Bearer " + localStorage.getItem("token"));
 
 const ProfileCard = (props) => {
   const [statistics, setStatistics] = useState(null);

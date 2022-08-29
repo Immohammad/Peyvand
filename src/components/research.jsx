@@ -7,8 +7,7 @@ import {
   NotificationManager,
 } from "react-notifications";
 
-axios.defaults.headers.common["Authorization"] =
-  "Bearer " + localStorage.getItem("token");
+axios.defaults.headers.common["Authorization"] = ("Bearer " + localStorage.getItem("token"));
 
 const Research = (props) => {
   const [fields, setFields] = useState();

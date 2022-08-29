@@ -4,8 +4,8 @@ import Research from "../research";
 import axios from "axios";
 import FullResearch from "../fullResearch";
 
-axios.defaults.headers.common["Authorization"] =
-  "Bearer " + localStorage.getItem("token");
+axios.defaults.headers.common["Authorization"] = ("Bearer " + localStorage.getItem("token"));
+
 
 function MyReasearchs(props) {
   const [projects, setProjects] = useState(null);

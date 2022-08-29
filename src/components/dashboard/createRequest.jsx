@@ -6,8 +6,8 @@ import {
 } from "react-notifications";
 import { useNavigate } from "react-router-dom";
 
-axios.defaults.headers.common["Authorization"] =
-  "Bearer " + localStorage.getItem("token");
+axios.defaults.headers.common["Authorization"] = ("Bearer " + localStorage.getItem("token"));
+
 
 function CreateResearch() {
   const [name, setName] = useState();

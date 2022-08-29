@@ -2,8 +2,8 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-axios.defaults.headers.common["Authorization"] =
-  "Bearer " + localStorage.getItem("token");
+axios.defaults.headers.common["Authorization"] = ("Bearer " + localStorage.getItem("token"));
+
 
 function AboutMe(props) {
   const [workfields, setWorkfields] = useState(null);
