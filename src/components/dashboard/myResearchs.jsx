@@ -39,7 +39,7 @@ function MyReasearchs(props) {
         </div>
         <div id="ResearchDescription">
         {selectedResearch ? (
-            <FullResearch data={selectedResearch} />
+            <FullResearch data={selectedResearch} announce={true}/>
           ) : (
             <div className="container justify-content-center" id="fullResearch">
               <p>

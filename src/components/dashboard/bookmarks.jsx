@@ -3,8 +3,7 @@ import axios from "axios";
 import Research from "../research";
 import FullResearch from "../fullResearch";
 
-axios.defaults.headers.common["Authorization"] =
-  "Bearer " + localStorage.getItem("token");
+axios.defaults.headers.common["Authorization"] ="Bearer " + localStorage.getItem("token");
 
 function Bookmarks() {
   const [bookmarks, setBookmarks] = useState(null);
@@ -30,7 +29,7 @@ function Bookmarks() {
       </div>
       <div id="ResearchDescription">
         {selectedResearch ? (
-          <FullResearch data={selectedResearch} />
+          <FullResearch data={selectedResearch}/>
         ) : (
           <div className="container justify-content-center" id="fullResearch">
             <p>

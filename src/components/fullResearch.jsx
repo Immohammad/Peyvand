@@ -13,7 +13,8 @@ const FullResearch = (props) => {
   const [managers, setManagers] = useState();
   const [participators, setParticipators] = useState();
   const [needs, setNeeds] = useState();
-  const [announcements, setAnnouncements] = useState();
+  const [announcementText, setAnnouncementText] = useState();
+  const [announcementTitle, setAnnouncementTitle] = useState();
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -58,6 +59,11 @@ const FullResearch = (props) => {
         setNeeds(null);
       });
   }, [props.data]);
+
+function handleAnnounceCreate() {
+  
+}
+
   return (
     <div className="container justify-content-center" id="fullResearch">
       <div>
@@ -109,11 +115,54 @@ const FullResearch = (props) => {
             color: "green",
             border: "solid 2px green",
             borderRadius: "100%",
-            // display:((localStorage.getItem("token")) ? reqToggle : "none")
+            display:((props.announce) ? "block" : "none")
           }}
         >
           +
         </button>
+        <div
+        className="container justify-content-center createResearch"
+        style={{ borderColor: "#C3B69F" , maxWidth:"95%"}}
+      >
+        <form onSubmit={handleAnnounceCreate}>
+            <p>فرم درخواست مشارکت در پژوهش</p>
+
+          <label>
+            عنوان درخواست
+            <br />
+            <input
+              type="text"
+              value={announcementTitle}
+              onChange={(event) => setAnnouncementTitle(event.target.value)}
+              style={{ width: "100%" }}
+              required
+            ></input>
+          </label>
+          <label>
+            شرح مشارکت
+            <br />
+            <textarea
+              type="text"
+              value={announcementText}
+              onChange={(event) => setAnnouncementText(event.target.value)}
+              style={{ width: "100%" }}
+              required
+            ></textarea>
+          </label>
+
+          <input
+            type="submit"
+            className="loginButtons"
+            value="افزودن"
+            style={{ width: "50%" , marginTop:"5px"}}
+          ></input>
+          <button onClick={() => props.closer("none")} style={{
+          marginRight: "10px",
+          backgroundColor: "white",
+          borderRadius: "7px",
+        }}>انصراف</button>
+        </form>
+      </div>
         {needs &&
           needs.map((option, index) => (
             <Cooperation key={index} need={option} />
