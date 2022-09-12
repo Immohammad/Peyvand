@@ -1,9 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  NotificationContainer,
-  NotificationManager,
-} from "react-notifications";
+import { NotificationManager } from "react-notifications";
 import axios from "axios";
 import User from "./context";
 
@@ -101,13 +98,13 @@ const SignLogin = () => {
     setSending(true);
     axios
       .post(url, user)
-      .then(function (response) {
+      .then(function () {
         NotificationManager.success("ثبت نام با موفقیت انجام شد");
         setTimeout(() => {
           handleLogin(event);
         }, 1000);
       })
-      .catch(function (error) {
+      .catch(function () {
         setSending(false);
         return NotificationManager.warning("ثبت نام با خطا مواجه شد");
       });
@@ -175,9 +172,9 @@ const SignLogin = () => {
         localStorage.setItem("userName", userName);
         userFromContext.setUSER(userName);
         setSending(false);
-        navigate("/");
+        window.location = "/";
       })
-      .catch(function (error) {
+      .catch(function () {
         setSending(false);
         NotificationManager.warning("نام کاربری یا رمز عبور نادرست است");
       });
@@ -360,7 +357,12 @@ const SignLogin = () => {
             }}
           ></input>
         </label>
-        <input disabled={sending} type="submit" className="loginButtons" value="ثبت"></input>
+        <input
+          disabled={sending}
+          type="submit"
+          className="loginButtons"
+          value="ثبت"
+        ></input>
       </form>
       {/* //////////////////////////////////////////////////// finish student*/}
 
@@ -434,7 +436,12 @@ const SignLogin = () => {
             }}
           ></input>
         </label>
-        <input disabled={sending} type="submit" className="loginButtons" value="ثبت"></input>
+        <input
+          disabled={sending}
+          type="submit"
+          className="loginButtons"
+          value="ثبت"
+        ></input>
       </form>
       {/* //////////////////////////////////////////////////// finish teacher*/}
 
@@ -474,8 +481,12 @@ const SignLogin = () => {
           ></input>
         </label>
 
-        <input disabled={sending} type="submit" className="loginButtons" value="ثبت"></input>
-      
+        <input
+          disabled={sending}
+          type="submit"
+          className="loginButtons"
+          value="ثبت"
+        ></input>
       </form>
       {/* //////////////////////////////////////////////////// finish company*/}
     </div>

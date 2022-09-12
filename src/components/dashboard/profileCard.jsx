@@ -3,7 +3,6 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import EmptyProfile from "../stuffs/blank-profile-drawing.png";
 import {
-  NotificationContainer,
   NotificationManager,
 } from "react-notifications";
 

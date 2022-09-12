@@ -11,7 +11,7 @@ import EditProfile from "./editProfile";
 import CreateResearch from "./createResearch";
 import CreateRequest from "./createRequest";
 
-axios.defaults.headers.common["Authorization"] = ("Bearer " + localStorage.getItem("token"));
+axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.getItem("token");
 
 const Dashboard = () => {
   const [current, setCurrent] = useState();

@@ -10,10 +10,6 @@ import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import User from "../context";
 
-{
-  /* https://www.devwares.com/blog/create-responsive-sidebar-in-react/ */
-}
-
 function DashboardSidenav() {
   const user = useContext(User);
   function handleLogout() {

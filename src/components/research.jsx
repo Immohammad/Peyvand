@@ -3,7 +3,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { BsBookmark } from "react-icons/bs";
 import {
-  NotificationContainer,
   NotificationManager,
 } from "react-notifications";
 
@@ -43,7 +42,7 @@ const Research = (props) => {
         {props.project.name}
       </h3>
       {fields &&
-        fields.map((unit) => <h5 className="fieldInResearch">{unit.name} </h5>)}
+        fields.map((unit) => <h5 className="fieldInResearch" >{unit.name} </h5>)}
       <hr />
 
       <p>{props.project.projectExplain}</p>

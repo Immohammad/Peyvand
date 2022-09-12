@@ -140,7 +140,7 @@ const Filter = (props) => {
           >
             <option value={2}>همه</option>
             <option value={1}>پایان‌یافته</option>
-            <option value={0}>در حال پیشبرد</option>
+            <option value={0}>در حال انجام</option>
           </select>
         </label>
       </div>

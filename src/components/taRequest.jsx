@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import {
-  NotificationContainer,
   NotificationManager,
 } from "react-notifications";
 
@@ -102,7 +101,6 @@ function TaRequest(props) {
           </form>
         </div>
       </div>
-      <NotificationContainer />
     </>
   );
 }
