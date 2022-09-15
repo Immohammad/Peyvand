@@ -1,70 +1,16 @@
-# Getting Started with Create React App
+# Peyvand (Beheshti university collaboration system)
+<div align="center">
+	<img height="250" src="https://user-images.githubusercontent.com/46230333/190456259-2d20372c-2bad-4e2c-a891-f04d3d3dff89.png" alt="logo" title="CSS" />
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains the frontend code for my bachelor project. The detailed version of the explanation, Analysis, Design and implementaion is found in `BCP_FinalReport_Mohammad Movahedinia.pdf` file, which is written in Persian.<br/>
+The backend of this project is available [here](https://github.com/RezaKlhor/SBUhamkari) and The whole project is deployed on https://peyvandsbu.netlify.app.
 
-## Available Scripts
+## Abstract
+A person's aliveness is manifested by making changes in his living environment and the most important responsibility of an engineer is to make a better world by solving existing problems.\
+With this assumption we decided to choose our bachelor project find a solution for a problem in Shahid Beheshti University.\
+A problem that came to our mind without much thought was the lack of a centralized and efficient platform to create links between students, professors and companies present in the university. Beheshti University, due to its eleven faculties in the central campus, can be the leader in interdisciplinary researchs and the connection between the university and the industry.\
+But so far no action has been taken to use this capacity. Students need other students for team building. They tend to work with professors to strengthen their resumes and Implement their ideas through the growth center. Professors for some of research and projects need students. Also The growth center units need students and professors in different fields. With all this said, currently this communication is done through informal ways such as searching and visiting in person, scattered announcements in academic channels and the like. Therefore, we decided to design a system that can integrate these mutual needs and solve the mentioned need by providing some features like Create research and teacher assistant situation, declaring need of cooperation, Observing the ongoing and finished researchs in the university and getting to know the activists of different research fields. So the main goal of this system is networking for researchs and startup activities within the university. In this report, we will review the design and implementation of the front-end of the mentioned system with ReactJS. The back-end implementation of this system is done by my good friend, Reza Kalhori.
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Keywords
+Shahid Beheshti University, Front-end, ReactJS, Collaboration, Peyvand
