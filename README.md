@@ -1,8 +1,9 @@
 # Peyvand (Beheshti university collaboration system)
 <div align="center">
-	<code><img height="250" src="https://user-images.githubusercontent.com/46230333/190456259-2d20372c-2bad-4e2c-a891-f04d3d3dff89.png" alt="logo" title="CSS" /></code>
+	<img height="250" src="https://user-images.githubusercontent.com/46230333/190456259-2d20372c-2bad-4e2c-a891-f04d3d3dff89.png" alt="logo" title="CSS" />
 </div>
-This repository contains the frontend code for my bachelor project. The detailed version of the explanation, Analysis, Design and implementaion is found in `BCP_FinalReport_Mohammad Movahedinia.pdf` file, which is written in Persian.\
+
+This repository contains the frontend code for my bachelor project. The detailed version of the explanation, Analysis, Design and implementaion is found in `BCP_FinalReport_Mohammad Movahedinia.pdf` file, which is written in Persian.<br/>
 The backend of this project is available [here](https://github.com/RezaKlhor/SBUhamkari) and The whole project is deployed on https://peyvandsbu.netlify.app.
 
 ## Abstract
