@@ -22,7 +22,7 @@ function TaRequest(props) {
     };
     axios
       .post(
-        "http://rezaklhor-001-site1.etempurl.com/Ta/CreateTaApplication",
+        "https://bsite.net/RezaKlhor/Ta/CreateTaApplication",
         info
       )
       .then(() => {
@@ -35,7 +35,7 @@ function TaRequest(props) {
   useEffect(() => {
     axios
       .get(
-        `http://rezaklhor-001-site1.etempurl.com/User/GetUserById?id=${props.request.professorId}`
+        `https://bsite.net/RezaKlhor/User/GetUserById?id=${props.request.professorId}`
       )
       .then(function (response) {
         setTeacher(response.data);

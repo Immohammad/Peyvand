@@ -8,7 +8,7 @@ function Notifications(props) {
   useEffect(() => {
     axios
       .get(
-        `http://rezaklhor-001-site1.etempurl.com/User/GetUserNotifs?userId=${props.user.id}`
+        `https://bsite.net/RezaKlhor/User/GetUserNotifs?userId=${props.user.id}`
       )
       .then(function (response) {
         setNotifs(response.data);

@@ -16,7 +16,7 @@ function Apply(props) {
     event.preventDefault();
     const info = { text: description, cv: "" , coAnnouncementId: props.need.id};
     axios
-      .post("http://rezaklhor-001-site1.etempurl.com/Apply/Apply", info)
+      .post("https://bsite.net/RezaKlhor/Apply/Apply", info)
       .then(function () {
         NotificationManager.success("آمادگی مشارکت ارسال شد.");
         props.closer("none")

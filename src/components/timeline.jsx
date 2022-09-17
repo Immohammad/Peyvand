@@ -10,7 +10,7 @@ function Timeline() {
   const [selectedResearch, setSelectedResearch] = useState(null);
 
   useEffect(() => {
-    axios.get("http://rezaklhor-001-site1.etempurl.com/Project/GetAllProjects")
+    axios.get("https://bsite.net/RezaKlhor/Project/GetAllProjects")
       .then((response) => {
         setProjects(response.data);
       })

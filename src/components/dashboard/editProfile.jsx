@@ -39,7 +39,7 @@ function EditProfile(props) {
 
   useEffect(() => {
     axios
-      .get("http://rezaklhor-001-site1.etempurl.com/User/GetAllFaculties")
+      .get("https://bsite.net/RezaKlhor/User/GetAllFaculties")
       .then(function (response) {
         setFacultyMenu(response.data);
       })
@@ -47,7 +47,7 @@ function EditProfile(props) {
         NotificationManager.warning("بارگیری دانشکده‌ها با خطا مواجه شد");
       });
     axios
-      .get("http://rezaklhor-001-site1.etempurl.com/WorkField/GetAllWorkFields")
+      .get("https://bsite.net/RezaKlhor/WorkField/GetAllWorkFields")
       .then(function (response) {
         setFieldsMenu(response.data);
       })
@@ -76,7 +76,7 @@ function EditProfile(props) {
     // console.log(data)
     axios
       .put(
-        `http://rezaklhor-001-site1.etempurl.com/User/${props.user.id}`,
+        `https://bsite.net/RezaKlhor/User/${props.user.id}`,
         data
       )
       .then(() => {
@@ -92,7 +92,7 @@ function EditProfile(props) {
     if (area != 1) {
       axios
         .post(
-          `http://rezaklhor-001-site1.etempurl.com/WorkField/AddWorkFieldToPerson?id=${area}`
+          `https://bsite.net/RezaKlhor/WorkField/AddWorkFieldToPerson?id=${area}`
         )
         .then(() => {
           NotificationManager.success("ویرایش انجام شد");
@@ -105,7 +105,7 @@ function EditProfile(props) {
     if (secondArea != 1) {
       axios
         .post(
-          `http://rezaklhor-001-site1.etempurl.com/WorkField/AddWorkFieldToPerson?id=${secondArea}`
+          `https://bsite.net/RezaKlhor/WorkField/AddWorkFieldToPerson?id=${secondArea}`
         )
         .then(() => {
           NotificationManager.success("ویرایش انجام شد");
@@ -118,7 +118,7 @@ function EditProfile(props) {
     if (thirdArea != 1) {
       axios
         .post(
-          `http://rezaklhor-001-site1.etempurl.com/WorkField/AddWorkFieldToPerson?id=${thirdArea}`
+          `https://bsite.net/RezaKlhor/WorkField/AddWorkFieldToPerson?id=${thirdArea}`
         )
         .then(() => {
           NotificationManager.success("ویرایش انجام شد");
@@ -140,7 +140,7 @@ function EditProfile(props) {
       };
       axios
         .post(
-          `http://rezaklhor-001-site1.etempurl.com/User/CreateContactInfo`,
+          `https://bsite.net/RezaKlhor/User/CreateContactInfo`,
           info
         )
         .catch(() => {
@@ -156,7 +156,7 @@ function EditProfile(props) {
       };
       axios
         .post(
-          `http://rezaklhor-001-site1.etempurl.com/User/CreateContactInfo`,
+          `https://bsite.net/RezaKlhor/User/CreateContactInfo`,
           info
         )
         .then(() => {

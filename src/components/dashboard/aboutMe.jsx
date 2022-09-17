@@ -13,21 +13,21 @@ function AboutMe(props) {
   useEffect(() => {
     axios
       .get(
-        `http://rezaklhor-001-site1.etempurl.com/WorkField/GetUserWorkFields?id=${props.user.id}`
+        `https://bsite.net/RezaKlhor/WorkField/GetUserWorkFields?id=${props.user.id}`
       )
       .then(function (response) {
         setWorkfields(response.data);
       });
     axios
       .get(
-        `http://rezaklhor-001-site1.etempurl.com/User/GetPublicContactInfo?userId=${props.user.id}`
+        `https://bsite.net/RezaKlhor/User/GetPublicContactInfo?userId=${props.user.id}`
       )
       .then(function (response) {
         setContactInfo(response.data);
       });
     axios
       .get(
-        `http://rezaklhor-001-site1.etempurl.com/User/GetUsersEducationRecords?userId=${props.user.id}`
+        `https://bsite.net/RezaKlhor/User/GetUsersEducationRecords?userId=${props.user.id}`
       )
       .then(function (response) {
         setEducation(response.data);

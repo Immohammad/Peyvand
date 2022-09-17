@@ -8,10 +8,6 @@ import {
 } from "cdbreact";
 import { NavLink } from "react-router-dom";
 
-{
-  /* https://www.devwares.com/blog/create-responsive-sidebar-in-react/ */
-}
-
 function ProfileSidenav() {
   return (
     <CDBSidebar id="profileSidebar">

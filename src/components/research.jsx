@@ -14,7 +14,7 @@ const Research = (props) => {
   useEffect(() => {
     axios
       .get(
-        `http://rezaklhor-001-site1.etempurl.com/WorkField/GetProjectWorkFields?id=${props.project.id}`
+        `https://bsite.net/RezaKlhor/WorkField/GetProjectWorkFields?id=${props.project.id}`
       )
       .then(function (response) {
         setFields(response.data);
@@ -26,7 +26,7 @@ const Research = (props) => {
   const handleBookmark = () => {
     axios
       .post(
-        `http://rezaklhor-001-site1.etempurl.com/project/PutProjectInSavebox?projectId=${props.project.id}`
+        `https://bsite.net/RezaKlhor/project/PutProjectInSavebox?projectId=${props.project.id}`
       )
       .then(function () {
         NotificationManager.success("پژوهش ذخیره شد");

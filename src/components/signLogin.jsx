@@ -121,7 +121,7 @@ const SignLogin = () => {
       studentID: studentId,
     };
     doPost(
-      "http://rezaklhor-001-site1.etempurl.com/Register/StudentRegister",
+      "https://bsite.net/RezaKlhor/Register/StudentRegister",
       newUser,
       event
     );
@@ -138,7 +138,7 @@ const SignLogin = () => {
       personnelID: teacherId,
     };
     doPost(
-      "http://rezaklhor-001-site1.etempurl.com/Register/ProfessorRegister",
+      "https://bsite.net/RezaKlhor/Register/ProfessorRegister",
       newUser,
       event
     );
@@ -152,7 +152,7 @@ const SignLogin = () => {
       companyIDnumber: companyCode,
     };
     doPost(
-      "http://rezaklhor-001-site1.etempurl.com/Register/CompanyRegister",
+      "https://bsite.net/RezaKlhor/Register/CompanyRegister",
       newUser,
       event
     );

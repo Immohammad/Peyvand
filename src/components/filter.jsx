@@ -32,7 +32,7 @@ const Filter = (props) => {
     };
     axios
       .post(
-        "http://rezaklhor-001-site1.etempurl.com/Project/GetProjectsByFilter",
+        "https://bsite.net/RezaKlhor/Project/GetProjectsByFilter",
         userFilter
       )
       .then(function (response) {
@@ -52,7 +52,7 @@ const Filter = (props) => {
     if (search) {
       axios
         .get(
-          `http://rezaklhor-001-site1.etempurl.com/project/GetProjectByName?name=${search}`
+          `https://bsite.net/RezaKlhor/project/GetProjectByName?name=${search}`
         )
         .then((response) => {
           props.setter(response.data);
@@ -70,7 +70,7 @@ const Filter = (props) => {
 
   useEffect(() => {
     axios
-      .get("http://rezaklhor-001-site1.etempurl.com/WorkField/GetAllWorkFields")
+      .get("https://bsite.net/RezaKlhor/WorkField/GetAllWorkFields")
       .then(function (response) {
         setFieldsMenu(response.data);
       })

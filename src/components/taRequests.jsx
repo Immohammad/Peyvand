@@ -8,7 +8,7 @@ function TaRequests() {
 
   useEffect(() => {
     axios
-      .get("http://rezaklhor-001-site1.etempurl.com/Ta/GetAllTaRequests")
+      .get("https://bsite.net/RezaKlhor/Ta/GetAllTaRequests")
       .then((response) => {
         setRequests(response.data);
       })

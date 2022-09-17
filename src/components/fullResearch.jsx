@@ -25,7 +25,7 @@ const FullResearch = (props) => {
   useEffect(() => {
     axios
       .get(
-        `http://rezaklhor-001-site1.etempurl.com/WorkField/GetProjectWorkFields?id=${props.data.id}`
+        `https://bsite.net/RezaKlhor/WorkField/GetProjectWorkFields?id=${props.data.id}`
       )
       .then(function (response) {
         setFields(response.data);
@@ -35,7 +35,7 @@ const FullResearch = (props) => {
       });
     axios
       .get(
-        `http://rezaklhor-001-site1.etempurl.com/Project/GetProjectManagers?projectId=${props.data.id}`
+        `https://bsite.net/RezaKlhor/Project/GetProjectManagers?projectId=${props.data.id}`
       )
       .then(function (response) {
         setManagers(response.data);
@@ -45,7 +45,7 @@ const FullResearch = (props) => {
       });
     axios
       .get(
-        `http://rezaklhor-001-site1.etempurl.com/User/GetUsersParticipates?projectId=${props.data.id}`
+        `https://bsite.net/RezaKlhor/User/GetUsersParticipates?projectId=${props.data.id}`
       )
       .then(function (response) {
         setParticipators(response.data);
@@ -55,7 +55,7 @@ const FullResearch = (props) => {
       });
     axios
       .get(
-        `http://rezaklhor-001-site1.etempurl.com/Apply/GetAnnouncementsForProjectWithApplications?projectId=${props.data.id}`
+        `https://bsite.net/RezaKlhor/Apply/GetAnnouncementsForProjectWithApplications?projectId=${props.data.id}`
       )
       .then(function (response) {
         setNeeds(response.data);
@@ -69,7 +69,7 @@ function handleAnnounceCreate(event) {
   event.preventDefault();
     const info = { tittle: announcementTitle, text: announcementText , projectId: props.data.id};
     axios
-      .post("http://rezaklhor-001-site1.etempurl.com/Apply/CreateCoAnnouncement", info)
+      .post("https://bsite.net/RezaKlhor/Apply/CreateCoAnnouncement", info)
       .then(function () {
         NotificationManager.success("فراخوان ساخته شد");
         props.closer("none")

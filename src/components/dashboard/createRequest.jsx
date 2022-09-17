@@ -19,7 +19,7 @@ function CreateResearch() {
     event.preventDefault();
     const info = { tittle: name, text: description };
     axios
-      .post("http://rezaklhor-001-site1.etempurl.com/Ta/CreateTaRequest", info)
+      .post("https://bsite.net/RezaKlhor/Ta/CreateTaRequest", info)
       .then(function () {
         NotificationManager.success("موقعیت درس‌یار ساخته شد");
         navigate("/dashboard/myResearchs");

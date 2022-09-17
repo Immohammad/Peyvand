@@ -12,7 +12,7 @@ function Bookmarks() {
   useEffect(() => {
     axios
       .get(
-        "http://rezaklhor-001-site1.etempurl.com/project/GetProjectsInSavebox"
+        "https://bsite.net/RezaKlhor/project/GetProjectsInSavebox"
       )
       .then(function (response) {
         setBookmarks(response.data);

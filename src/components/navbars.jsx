@@ -25,7 +25,7 @@ const Navbars = () => {
     event.preventDefault();
     axios
       .get(
-        `http://rezaklhor-001-site1.etempurl.com/User/GetUserByUsername?username=${search}`
+        `https://bsite.net/RezaKlhor/User/GetUserByUsername?username=${search}`
       )
       .then((response) => {
         navigate(`/profile/${response.data.id}`);

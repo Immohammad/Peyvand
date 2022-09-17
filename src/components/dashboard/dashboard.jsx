@@ -18,7 +18,7 @@ const Dashboard = () => {
   useEffect(() => {
     axios
       .get(
-        `http://rezaklhor-001-site1.etempurl.com/User/GetUserByUsername?username=${localStorage.getItem(
+        `https://bsite.net/RezaKlhor/User/GetUserByUsername?username=${localStorage.getItem(
           "userName"
         )}`
       )

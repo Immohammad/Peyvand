@@ -18,7 +18,7 @@ function Profile(props) {
 
   useEffect(() => {
     axios
-      .get(`http://rezaklhor-001-site1.etempurl.com/User/GetUserById?id=${id}`)
+      .get(`https://bsite.net/RezaKlhor/User/GetUserById?id=${id}`)
       .then(function (response) {
         setCurrent(response.data);
       })
@@ -27,7 +27,7 @@ function Profile(props) {
       });
     axios
       .get(
-        `http://rezaklhor-001-site1.etempurl.com/project/GetProjectsByManager?id=${id}`
+        `https://bsite.net/RezaKlhor/project/GetProjectsByManager?id=${id}`
       )
       .then(function (response) {
         setProjectsManaging(response.data);
@@ -37,7 +37,7 @@ function Profile(props) {
       });
     axios
       .get(
-        `http://rezaklhor-001-site1.etempurl.com/project/GetProjectsByParticipator?participatorId=${id}`
+        `https://bsite.net/RezaKlhor/project/GetProjectsByParticipator?participatorId=${id}`
       )
       .then(function (response) {
         setProjectsParticipating(response.data);

@@ -13,7 +13,7 @@ const ProfileCard = (props) => {
   useEffect(() => {
     axios
       .get(
-        `http://rezaklhor-001-site1.etempurl.com/User/GetUserStatistics?userId=${props.user.id}`
+        `https://bsite.net/RezaKlhor/User/GetUserStatistics?userId=${props.user.id}`
       )
       .then(function (response) {
         setStatistics(response.data);
@@ -23,7 +23,7 @@ const ProfileCard = (props) => {
   function handleFollow() {
     axios
       .get(
-        `http://rezaklhor-001-site1.etempurl.com/User/Follow?userId=${props.user.id}`
+        `https://bsite.net/RezaKlhor/User/Follow?userId=${props.user.id}`
       )
       .then(() => {
         NotificationManager.success("شما از این پس این کاربر را دنبال می‌کنید");

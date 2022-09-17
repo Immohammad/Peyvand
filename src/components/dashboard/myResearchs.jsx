@@ -14,7 +14,7 @@ function MyReasearchs(props) {
   useEffect(() => {
     axios
       .get(
-        `http://rezaklhor-001-site1.etempurl.com/Project/GetProjectsByManager?managerId=${props.user.id}`
+        `https://bsite.net/RezaKlhor/Project/GetProjectsByManager?managerId=${props.user.id}`
       )
       .then(function (response) {
         setProjects(response.data);

@@ -22,7 +22,7 @@ function CreateResearch() {
 
   useEffect(() => {
     axios
-      .get("http://rezaklhor-001-site1.etempurl.com/WorkField/GetAllWorkFields")
+      .get("https://bsite.net/RezaKlhor/WorkField/GetAllWorkFields")
       .then(function (response) {
         setFieldsMenu(response.data);
       })
@@ -34,7 +34,7 @@ function CreateResearch() {
   const handleCreate = (event) => {
     event.preventDefault();
     axios
-      .post("http://rezaklhor-001-site1.etempurl.com/project/ProjectCreate", {
+      .post("https://bsite.net/RezaKlhor/project/ProjectCreate", {
         name: name,
         projectExplain: fullDescription,
         projectState: pstate,
@@ -42,17 +42,17 @@ function CreateResearch() {
       .then((response) => {
         if (area != 1)
           axios.post(
-            `http://rezaklhor-001-site1.etempurl.com/WorkField/AddWorkFieldToProject?projectId=${response.data.id}&workId=${area}`
+            `https://bsite.net/RezaKlhor/WorkField/AddWorkFieldToProject?projectId=${response.data.id}&workId=${area}`
           );
         // else return;
         if (secondArea != 1)
           axios.post(
-            `http://rezaklhor-001-site1.etempurl.com/WorkField/AddWorkFieldToProject?projectId=${response.data.id}&workId=${secondArea}`
+            `https://bsite.net/RezaKlhor/WorkField/AddWorkFieldToProject?projectId=${response.data.id}&workId=${secondArea}`
           );
         // else return;
         if (thirdArea != 1)
           axios.post(
-            `http://rezaklhor-001-site1.etempurl.com/WorkField/AddWorkFieldToProject?projectId=${response.data.id}&workId=${thirdArea}`
+            `https://bsite.net/RezaKlhor/WorkField/AddWorkFieldToProject?projectId=${response.data.id}&workId=${thirdArea}`
           );
         // else return;
         navigate("/dashboard/myResearchs");
