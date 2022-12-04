@@ -4,7 +4,7 @@
 </div>
 
 This repository contains the frontend code for my bachelor project. The detailed version of the explanation, Analysis, Design and implementaion is found in `BCP_FinalReport_Mohammad Movahedinia.pdf` file, which is written in Persian.<br/>
-The backend of this project is available [here](https://github.com/RezaKlhor/SBUhamkari) and The whole project is deployed on https://peyvandsbu.netlify.app.
+The backend of this project is available [here](https://github.com/RezaKlhor/SBUhamkari) and The whole project is deployed on https://peyvandsbu.netlify.app (It is better to use vpn).
 
 ## Abstract
 A person's aliveness is manifested by making changes in his living environment and the most important responsibility of an engineer is to make a better world by solving existing problems.\
