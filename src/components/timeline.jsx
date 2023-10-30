@@ -40,7 +40,7 @@ function Timeline() {
           ) : (
             <div className="container justify-content-center" id="fullResearch">
               <p>
-                پروژهشی را انتخاب کنید تا شرح کامل آن در اینجا نمایش داده شود.
+                پژوهشی را انتخاب کنید تا شرح کامل آن در اینجا نمایش داده شود.
               </p>
             </div>
           )}
