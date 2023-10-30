@@ -52,10 +52,12 @@ const Footer = () => {
               style={{ padding: "0" }}
             >
               <MdEmail />
+              <span>khodadi_J@yahoo.com</span>
               <span>mo.movahedinia@gmail.com</span>
               <span>reza.kalhor19@gmail.com</span>
               <br />
               <CDBIcon fab icon="telegram" />
+              <span>hossein_khd@</span>
               <span>Mohmov@</span>
               <span>reza_k324@</span>
             </CDBBox>
